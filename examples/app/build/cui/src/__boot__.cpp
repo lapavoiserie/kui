@@ -70,6 +70,9 @@
 #ifndef INCLUDED_cui_state_StateBase
 #include <cui/state/StateBase.h>
 #endif
+#ifndef INCLUDED_cui_backend_native_Terminal
+#include <cui/backend/native/Terminal.h>
+#endif
 #ifndef INCLUDED_BatteryApp
 #include <BatteryApp.h>
 #endif
@@ -271,6 +274,9 @@
 #ifndef INCLUDED_cui_event_EventLoop
 #include <cui/event/EventLoop.h>
 #endif
+#ifndef INCLUDED_cui_backend_native_WindowsTerminal
+#include <cui/backend/native/WindowsTerminal.h>
+#endif
 #ifndef INCLUDED_cui_backend_native_PosixTerminal
 #include <cui/backend/native/PosixTerminal.h>
 #endif
@@ -349,6 +355,7 @@ __files__boot();
 ::cui::mui::TabView_obj::__register();
 ::cui::mui::ScrollView_obj::__register();
 ::cui::state::StateBase_obj::__register();
+::cui::backend::native::Terminal_obj::__register();
 ::BatteryApp_obj::__register();
 ::sys::io::FileOutput_obj::__register();
 ::rui::Observable_obj::__register();
@@ -416,6 +423,7 @@ __files__boot();
 ::cui::event::MouseEvent_obj::__register();
 ::cui::event::KeyEvent_obj::__register();
 ::cui::event::EventLoop_obj::__register();
+::cui::backend::native::WindowsTerminal_obj::__register();
 ::cui::backend::native::PosixTerminal_obj::__register();
 ::cui::backend::CrossTerminal_obj::__register();
 ::cui::backend::AnsiBackend_obj::__register();
@@ -450,6 +458,7 @@ __files__boot();
 ::cui::event::Event_obj::__boot();
 ::haxe::Log_obj::__boot();
 ::BatteryApp_obj::__boot();
+::cui::backend::native::Terminal_obj::__boot();
 ::cui::state::StateBase_obj::__boot();
 ::cui::mui::ScrollView_obj::__boot();
 ::cui::mui::TabView_obj::__boot();

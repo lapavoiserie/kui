@@ -13,6 +13,12 @@
 #ifndef INCLUDED_cui_backend_native_PosixTerminal
 #include <cui/backend/native/PosixTerminal.h>
 #endif
+#ifndef INCLUDED_cui_backend_native_Terminal
+#include <cui/backend/native/Terminal.h>
+#endif
+#ifndef INCLUDED_cui_backend_native_WindowsTerminal
+#include <cui/backend/native/WindowsTerminal.h>
+#endif
 #ifndef INCLUDED_cui_event_Event
 #include <cui/event/Event.h>
 #endif
@@ -107,7 +113,12 @@ void *AnsiBackend_obj::_hx_getInterface(int inHash) {
 
 void AnsiBackend_obj::enterRawMode(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_17_enterRawMode)
-HXDLIN(  17)		::cui::backend::native::PosixTerminal_obj::enableRawMode();
+HXDLIN(  17)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  17)			::cui::backend::native::WindowsTerminal_obj::enableRawMode();
+            		}
+            		else {
+HXDLIN(  17)			::cui::backend::native::PosixTerminal_obj::enableRawMode();
+            		}
             	}
 
 
@@ -115,7 +126,12 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,enterRawMode,(void))
 
 void AnsiBackend_obj::leaveRawMode(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_21_leaveRawMode)
-HXDLIN(  21)		::cui::backend::native::PosixTerminal_obj::disableRawMode();
+HXDLIN(  21)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  21)			::cui::backend::native::WindowsTerminal_obj::disableRawMode();
+            		}
+            		else {
+HXDLIN(  21)			::cui::backend::native::PosixTerminal_obj::disableRawMode();
+            		}
             	}
 
 
@@ -123,7 +139,12 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,leaveRawMode,(void))
 
 void AnsiBackend_obj::enterAlternateScreen(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_25_enterAlternateScreen)
-HXDLIN(  25)		::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?1049h",05,4d,73,57));
+HXDLIN(  25)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  25)			::cui::backend::native::WindowsTerminal_obj::writeStdout(HX_("\x1b""[?1049h",05,4d,73,57));
+            		}
+            		else {
+HXDLIN(  25)			::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?1049h",05,4d,73,57));
+            		}
             	}
 
 
@@ -131,7 +152,12 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,enterAlternateScreen,(void))
 
 void AnsiBackend_obj::leaveAlternateScreen(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_29_leaveAlternateScreen)
-HXDLIN(  29)		::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?1049l",09,4d,73,57));
+HXDLIN(  29)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  29)			::cui::backend::native::WindowsTerminal_obj::writeStdout(HX_("\x1b""[?1049l",09,4d,73,57));
+            		}
+            		else {
+HXDLIN(  29)			::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?1049l",09,4d,73,57));
+            		}
             	}
 
 
@@ -139,7 +165,12 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,leaveAlternateScreen,(void))
 
 void AnsiBackend_obj::hideCursor(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_33_hideCursor)
-HXDLIN(  33)		::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?25l",4a,18,e4,5a));
+HXDLIN(  33)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  33)			::cui::backend::native::WindowsTerminal_obj::writeStdout(HX_("\x1b""[?25l",4a,18,e4,5a));
+            		}
+            		else {
+HXDLIN(  33)			::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?25l",4a,18,e4,5a));
+            		}
             	}
 
 
@@ -147,7 +178,12 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,hideCursor,(void))
 
 void AnsiBackend_obj::showCursor(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_37_showCursor)
-HXDLIN(  37)		::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?25h",46,18,e4,5a));
+HXDLIN(  37)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  37)			::cui::backend::native::WindowsTerminal_obj::writeStdout(HX_("\x1b""[?25h",46,18,e4,5a));
+            		}
+            		else {
+HXDLIN(  37)			::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?25h",46,18,e4,5a));
+            		}
             	}
 
 
@@ -155,7 +191,13 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,showCursor,(void))
 
 void AnsiBackend_obj::moveCursor(int x,int y){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_41_moveCursor)
-HXDLIN(  41)		::cui::backend::native::PosixTerminal_obj::writeStdout(((((HX_("\x1b""[",e0,17,00,00) + (y + 1)) + HX_(";",3b,00,00,00)) + (x + 1)) + HX_("H",48,00,00,00)));
+HXDLIN(  41)		::String data = ((((HX_("\x1b""[",e0,17,00,00) + (y + 1)) + HX_(";",3b,00,00,00)) + (x + 1)) + HX_("H",48,00,00,00));
+HXDLIN(  41)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  41)			::cui::backend::native::WindowsTerminal_obj::writeStdout(data);
+            		}
+            		else {
+HXDLIN(  41)			::cui::backend::native::PosixTerminal_obj::writeStdout(data);
+            		}
             	}
 
 
@@ -163,7 +205,12 @@ HX_DEFINE_DYNAMIC_FUNC2(AnsiBackend_obj,moveCursor,(void))
 
 void AnsiBackend_obj::write(::String data){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_45_write)
-HXDLIN(  45)		::cui::backend::native::PosixTerminal_obj::writeStdout(data);
+HXDLIN(  45)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  45)			::cui::backend::native::WindowsTerminal_obj::writeStdout(data);
+            		}
+            		else {
+HXDLIN(  45)			::cui::backend::native::PosixTerminal_obj::writeStdout(data);
+            		}
             	}
 
 
@@ -171,7 +218,12 @@ HX_DEFINE_DYNAMIC_FUNC1(AnsiBackend_obj,write,(void))
 
 void AnsiBackend_obj::flush(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_49_flush)
-HXDLIN(  49)		::cui::backend::native::PosixTerminal_obj::flushStdout();
+HXDLIN(  49)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  49)			::cui::backend::native::WindowsTerminal_obj::flushStdout();
+            		}
+            		else {
+HXDLIN(  49)			::cui::backend::native::PosixTerminal_obj::flushStdout();
+            		}
             	}
 
 
@@ -179,7 +231,13 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,flush,(void))
 
  ::cui::layout::Size AnsiBackend_obj::getSize(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_53_getSize)
-HXDLIN(  53)		return ::cui::backend::native::PosixTerminal_obj::getTermSize();
+HXDLIN(  53)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  53)			return ::cui::backend::native::WindowsTerminal_obj::getTermSize();
+            		}
+            		else {
+HXDLIN(  53)			return ::cui::backend::native::PosixTerminal_obj::getTermSize();
+            		}
+HXDLIN(  53)		return null();
             	}
 
 
@@ -187,7 +245,12 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,getSize,return )
 
 void AnsiBackend_obj::enableMouseCapture(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_58_enableMouseCapture)
-HXDLIN(  58)		::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?1000h\x1b""[?1006h",8e,b7,17,cf));
+HXDLIN(  58)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  58)			::cui::backend::native::WindowsTerminal_obj::writeStdout(HX_("\x1b""[?1000h\x1b""[?1006h",8e,b7,17,cf));
+            		}
+            		else {
+HXDLIN(  58)			::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?1000h\x1b""[?1006h",8e,b7,17,cf));
+            		}
             	}
 
 
@@ -195,7 +258,12 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,enableMouseCapture,(void))
 
 void AnsiBackend_obj::disableMouseCapture(){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_62_disableMouseCapture)
-HXDLIN(  62)		::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?1006l\x1b""[?1000l",96,25,9c,9c));
+HXDLIN(  62)		if (::cui::backend::native::Terminal_obj::windows) {
+HXDLIN(  62)			::cui::backend::native::WindowsTerminal_obj::writeStdout(HX_("\x1b""[?1006l\x1b""[?1000l",96,25,9c,9c));
+            		}
+            		else {
+HXDLIN(  62)			::cui::backend::native::PosixTerminal_obj::writeStdout(HX_("\x1b""[?1006l\x1b""[?1000l",96,25,9c,9c));
+            		}
             	}
 
 
@@ -203,7 +271,13 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,disableMouseCapture,(void))
 
  ::cui::event::Event AnsiBackend_obj::pollEvent(int timeoutMs){
             	HX_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_65_pollEvent)
-HXLINE(  66)		int byte = ::cui::backend::native::PosixTerminal_obj::readByte(timeoutMs);
+HXLINE(  66)		int byte;
+HXDLIN(  66)		if (::cui::backend::native::Terminal_obj::windows) {
+HXLINE(  66)			byte = ::cui::backend::native::WindowsTerminal_obj::readByte(timeoutMs);
+            		}
+            		else {
+HXLINE(  66)			byte = ::cui::backend::native::PosixTerminal_obj::readByte(timeoutMs);
+            		}
 HXLINE(  67)		if ((byte < 0)) {
 HXLINE(  67)			return null();
             		}
@@ -273,7 +347,13 @@ HX_DEFINE_DYNAMIC_FUNC1(AnsiBackend_obj,parseInput,return )
 
  ::cui::event::Event AnsiBackend_obj::parseEscape(){
             	HX_GC_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_111_parseEscape)
-HXLINE( 112)		int b2 = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+HXLINE( 112)		int b2;
+HXDLIN( 112)		if (::cui::backend::native::Terminal_obj::windows) {
+HXLINE( 112)			b2 = ::cui::backend::native::WindowsTerminal_obj::readByteImmediate();
+            		}
+            		else {
+HXLINE( 112)			b2 = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+            		}
 HXLINE( 113)		if ((b2 < 0)) {
 HXLINE( 114)			return ::cui::event::Event_obj::Key( ::cui::event::KeyEvent_obj::__alloc( HX_CTX ,::cui::event::KeyCode_obj::Escape_dyn(),null(),null(),null()));
             		}
@@ -281,7 +361,13 @@ HXLINE( 117)		if ((b2 == 91)) {
 HXLINE( 118)			return this->parseCsi();
             		}
 HXLINE( 121)		if ((b2 == 79)) {
-HXLINE( 122)			int b3 = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+HXLINE( 122)			int b3;
+HXDLIN( 122)			if (::cui::backend::native::Terminal_obj::windows) {
+HXLINE( 122)				b3 = ::cui::backend::native::WindowsTerminal_obj::readByteImmediate();
+            			}
+            			else {
+HXLINE( 122)				b3 = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+            			}
 HXLINE( 123)			switch((int)(b3)){
             				case (int)80: {
 HXLINE( 124)					return ::cui::event::Event_obj::Key( ::cui::event::KeyEvent_obj::__alloc( HX_CTX ,::cui::event::KeyCode_obj::F(1),null(),null(),null()));
@@ -322,7 +408,13 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,parseEscape,return )
 
  ::cui::event::Event AnsiBackend_obj::parseCsi(){
             	HX_GC_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_140_parseCsi)
-HXLINE( 141)		int b3 = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+HXLINE( 141)		int b3;
+HXDLIN( 141)		if (::cui::backend::native::Terminal_obj::windows) {
+HXLINE( 141)			b3 = ::cui::backend::native::WindowsTerminal_obj::readByteImmediate();
+            		}
+            		else {
+HXLINE( 141)			b3 = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+            		}
 HXLINE( 142)		if ((b3 < 0)) {
 HXLINE( 142)			return ::cui::event::Event_obj::Key( ::cui::event::KeyEvent_obj::__alloc( HX_CTX ,::cui::event::KeyCode_obj::Escape_dyn(),null(),null(),null()));
             		}
@@ -385,7 +477,13 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,parseCsi,return )
 HXLINE( 170)		::Array< int > params = ::Array_obj< int >::__new();
 HXLINE( 171)		int current = 0;
 HXLINE( 173)		while(true){
-HXLINE( 174)			int b = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+HXLINE( 174)			int b;
+HXDLIN( 174)			if (::cui::backend::native::Terminal_obj::windows) {
+HXLINE( 174)				b = ::cui::backend::native::WindowsTerminal_obj::readByteImmediate();
+            			}
+            			else {
+HXLINE( 174)				b = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+            			}
 HXLINE( 175)			if ((b < 0)) {
 HXLINE( 175)				return null();
             			}
@@ -475,7 +573,13 @@ HX_DEFINE_DYNAMIC_FUNC0(AnsiBackend_obj,parseSgrMouse,return )
             	HX_GC_STACKFRAME(&_hx_pos_0ae6d622ed3e4095_218_parseExtendedCsi)
 HXLINE( 219)		int num = (firstDigit - 48);
 HXLINE( 220)		while(true){
-HXLINE( 221)			int b = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+HXLINE( 221)			int b;
+HXDLIN( 221)			if (::cui::backend::native::Terminal_obj::windows) {
+HXLINE( 221)				b = ::cui::backend::native::WindowsTerminal_obj::readByteImmediate();
+            			}
+            			else {
+HXLINE( 221)				b = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+            			}
 HXLINE( 222)			if ((b < 0)) {
 HXLINE( 222)				goto _hx_goto_19;
             			}
@@ -588,7 +692,13 @@ HXDLIN( 257)			int _g1 = remaining;
 HXDLIN( 257)			while((_g < _g1)){
 HXLINE( 257)				_g = (_g + 1);
 HXDLIN( 257)				int i = (_g - 1);
-HXLINE( 258)				int b = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+HXLINE( 258)				int b;
+HXDLIN( 258)				if (::cui::backend::native::Terminal_obj::windows) {
+HXLINE( 258)					b = ::cui::backend::native::WindowsTerminal_obj::readByteImmediate();
+            				}
+            				else {
+HXLINE( 258)					b = ::cui::backend::native::PosixTerminal_obj::readByteImmediate();
+            				}
 HXLINE( 259)				if ((b < 0)) {
 HXLINE( 259)					return null();
             				}

@@ -14,13 +14,13 @@
 #include <haxe/io/Output.h>
 #endif
 
-HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_29_enableRawMode,"cui.backend.native.PosixTerminal","enableRawMode",0xfb9f21d3,"cui.backend.native.PosixTerminal.enableRawMode","cui/backend/native/PosixTerminal.hx",29,0x794ac5c4)
-HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_36_disableRawMode,"cui.backend.native.PosixTerminal","disableRawMode",0x8bfd3158,"cui.backend.native.PosixTerminal.disableRawMode","cui/backend/native/PosixTerminal.hx",36,0x794ac5c4)
-HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_46_getTermSize,"cui.backend.native.PosixTerminal","getTermSize",0x67ec04ee,"cui.backend.native.PosixTerminal.getTermSize","cui/backend/native/PosixTerminal.hx",46,0x794ac5c4)
-HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_64_readByte,"cui.backend.native.PosixTerminal","readByte",0xf03a20b3,"cui.backend.native.PosixTerminal.readByte","cui/backend/native/PosixTerminal.hx",64,0x794ac5c4)
-HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_74_readByteImmediate,"cui.backend.native.PosixTerminal","readByteImmediate",0x6d57a4be,"cui.backend.native.PosixTerminal.readByteImmediate","cui/backend/native/PosixTerminal.hx",74,0x794ac5c4)
-HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_79_writeStdout,"cui.backend.native.PosixTerminal","writeStdout",0xfd8899f5,"cui.backend.native.PosixTerminal.writeStdout","cui/backend/native/PosixTerminal.hx",79,0x794ac5c4)
-HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_83_flushStdout,"cui.backend.native.PosixTerminal","flushStdout",0x13e3899a,"cui.backend.native.PosixTerminal.flushStdout","cui/backend/native/PosixTerminal.hx",83,0x794ac5c4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_33_enableRawMode,"cui.backend.native.PosixTerminal","enableRawMode",0xfb9f21d3,"cui.backend.native.PosixTerminal.enableRawMode","cui/backend/native/PosixTerminal.hx",33,0x794ac5c4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_42_disableRawMode,"cui.backend.native.PosixTerminal","disableRawMode",0x8bfd3158,"cui.backend.native.PosixTerminal.disableRawMode","cui/backend/native/PosixTerminal.hx",42,0x794ac5c4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_55_getTermSize,"cui.backend.native.PosixTerminal","getTermSize",0x67ec04ee,"cui.backend.native.PosixTerminal.getTermSize","cui/backend/native/PosixTerminal.hx",55,0x794ac5c4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_76_readByte,"cui.backend.native.PosixTerminal","readByte",0xf03a20b3,"cui.backend.native.PosixTerminal.readByte","cui/backend/native/PosixTerminal.hx",76,0x794ac5c4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_89_readByteImmediate,"cui.backend.native.PosixTerminal","readByteImmediate",0x6d57a4be,"cui.backend.native.PosixTerminal.readByteImmediate","cui/backend/native/PosixTerminal.hx",89,0x794ac5c4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_94_writeStdout,"cui.backend.native.PosixTerminal","writeStdout",0xfd8899f5,"cui.backend.native.PosixTerminal.writeStdout","cui/backend/native/PosixTerminal.hx",94,0x794ac5c4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c6a26c4d20666bd_98_flushStdout,"cui.backend.native.PosixTerminal","flushStdout",0x13e3899a,"cui.backend.native.PosixTerminal.flushStdout","cui/backend/native/PosixTerminal.hx",98,0x794ac5c4)
 namespace cui{
 namespace backend{
 namespace native{
@@ -43,8 +43,9 @@ bool PosixTerminal_obj::_hx_isInstanceOf(int inClassId) {
 }
 
 void PosixTerminal_obj::enableRawMode(){
-            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_29_enableRawMode)
+            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_33_enableRawMode)
             	
+#ifndef _WIN32
         if (cui_raw_mode) return;
         tcgetattr(STDIN_FILENO, &cui_orig_termios);
         struct termios raw = cui_orig_termios;
@@ -56,6 +57,7 @@ void PosixTerminal_obj::enableRawMode(){
         raw.c_cc[VTIME] = 0;
         tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
         cui_raw_mode = true;
+#endif
     
 
             	}
@@ -64,11 +66,13 @@ void PosixTerminal_obj::enableRawMode(){
 STATIC_HX_DEFINE_DYNAMIC_FUNC0(PosixTerminal_obj,enableRawMode,(void))
 
 void PosixTerminal_obj::disableRawMode(){
-            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_36_disableRawMode)
+            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_42_disableRawMode)
             	
+#ifndef _WIN32
         if (!cui_raw_mode) return;
         tcsetattr(STDIN_FILENO, TCSAFLUSH, &cui_orig_termios);
         cui_raw_mode = false;
+#endif
     
 
             	}
@@ -77,24 +81,28 @@ void PosixTerminal_obj::disableRawMode(){
 STATIC_HX_DEFINE_DYNAMIC_FUNC0(PosixTerminal_obj,disableRawMode,(void))
 
  ::cui::layout::Size PosixTerminal_obj::getTermSize(){
-            	HX_GC_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_46_getTermSize)
+            	HX_GC_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_55_getTermSize)
             	
+#ifndef _WIN32
         struct winsize ws;
         if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws) == -1) {
             return ::cui::layout::Size_obj::__new(80, 24);
         }
         return ::cui::layout::Size_obj::__new(ws.ws_col, ws.ws_row);
+#endif
+        return ::cui::layout::Size_obj::__new(80, 24);
     
 
-HXDLIN(  46)		return  ::cui::layout::Size_obj::__alloc( HX_CTX ,80,24);
+HXDLIN(  55)		return  ::cui::layout::Size_obj::__alloc( HX_CTX ,80,24);
             	}
 
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC0(PosixTerminal_obj,getTermSize,return )
 
 int PosixTerminal_obj::readByte(int timeoutMs){
-            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_64_readByte)
+            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_76_readByte)
             	
+#ifndef _WIN32
         fd_set fds;
         struct timeval tv;
         FD_ZERO(&fds);
@@ -107,40 +115,45 @@ int PosixTerminal_obj::readByte(int timeoutMs){
         int n = read(STDIN_FILENO, &c, 1);
         if (n <= 0) return -1;
         return (int)c;
+#endif
+        return -1;
     
 
-HXDLIN(  64)		return -1;
+HXDLIN(  76)		return -1;
             	}
 
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(PosixTerminal_obj,readByte,return )
 
 int PosixTerminal_obj::readByteImmediate(){
-            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_74_readByteImmediate)
+            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_89_readByteImmediate)
             	
+#ifndef _WIN32
         unsigned char c;
         int n = read(STDIN_FILENO, &c, 1);
         if (n <= 0) return -1;
         return (int)c;
+#endif
+        return -1;
     
 
-HXDLIN(  74)		return -1;
+HXDLIN(  89)		return -1;
             	}
 
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC0(PosixTerminal_obj,readByteImmediate,return )
 
 void PosixTerminal_obj::writeStdout(::String data){
-            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_79_writeStdout)
-HXDLIN(  79)		::Sys_obj::print(data);
+            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_94_writeStdout)
+HXDLIN(  94)		::Sys_obj::print(data);
             	}
 
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(PosixTerminal_obj,writeStdout,(void))
 
 void PosixTerminal_obj::flushStdout(){
-            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_83_flushStdout)
-HXDLIN(  83)		::Sys_obj::_hx_stdout()->flush();
+            	HX_STACKFRAME(&_hx_pos_1c6a26c4d20666bd_98_flushStdout)
+HXDLIN(  98)		::Sys_obj::_hx_stdout()->flush();
             	}
 
 

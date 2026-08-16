@@ -59,6 +59,9 @@ class HXCPP_CLASS_ATTRIBUTES Sys_obj : public ::hx::Object
 		static  ::haxe::io::Output _hx_stderr();
 		static ::Dynamic _hx_stderr_dyn();
 
+		static ::String systemName();
+		static ::Dynamic systemName_dyn();
+
 };
 
 

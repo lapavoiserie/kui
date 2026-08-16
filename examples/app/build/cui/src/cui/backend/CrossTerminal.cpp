@@ -11,7 +11,7 @@
 #include <cui/backend/CrossTerminal.h>
 #endif
 
-HX_LOCAL_STACK_FRAME(_hx_pos_4e788f136f9b9a62_7_create,"cui.backend.CrossTerminal","create",0xd1268e1f,"cui.backend.CrossTerminal.create","cui/backend/CrossTerminal.hx",7,0xe74181b5)
+HX_LOCAL_STACK_FRAME(_hx_pos_4e788f136f9b9a62_19_create,"cui.backend.CrossTerminal","create",0xd1268e1f,"cui.backend.CrossTerminal.create","cui/backend/CrossTerminal.hx",19,0xe74181b5)
 namespace cui{
 namespace backend{
 
@@ -33,8 +33,8 @@ bool CrossTerminal_obj::_hx_isInstanceOf(int inClassId) {
 }
 
 ::Dynamic CrossTerminal_obj::create(){
-            	HX_GC_STACKFRAME(&_hx_pos_4e788f136f9b9a62_7_create)
-HXDLIN(   7)		return  ::cui::backend::AnsiBackend_obj::__alloc( HX_CTX );
+            	HX_GC_STACKFRAME(&_hx_pos_4e788f136f9b9a62_19_create)
+HXDLIN(  19)		return  ::cui::backend::AnsiBackend_obj::__alloc( HX_CTX );
             	}
 
 

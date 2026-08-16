@@ -14,6 +14,7 @@
 HX_LOCAL_STACK_FRAME(_hx_pos_39f5eab4124248fe_28_print,"Sys","print",0x483745ec,"Sys.print","/usr/local/lib/haxe/std/cpp/_std/Sys.hx",28,0xd23c22f3)
 HX_LOCAL_STACK_FRAME(_hx_pos_39f5eab4124248fe_42_stdout,"Sys","stdout",0x3eb7d92c,"Sys.stdout","/usr/local/lib/haxe/std/cpp/_std/Sys.hx",42,0xd23c22f3)
 HX_LOCAL_STACK_FRAME(_hx_pos_39f5eab4124248fe_47_stderr,"Sys","stderr",0x3eb04003,"Sys.stderr","/usr/local/lib/haxe/std/cpp/_std/Sys.hx",47,0xd23c22f3)
+HX_LOCAL_STACK_FRAME(_hx_pos_39f5eab4124248fe_87_systemName,"Sys","systemName",0xbea5b6bb,"Sys.systemName","/usr/local/lib/haxe/std/cpp/_std/Sys.hx",87,0xd23c22f3)
 
 void Sys_obj::__construct() { }
 
@@ -56,6 +57,14 @@ HXDLIN(  47)		return  ::sys::io::FileOutput_obj::__alloc( HX_CTX ,_hx_std_file_s
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC0(Sys_obj,_hx_stderr,return )
 
+::String Sys_obj::systemName(){
+            	HX_STACKFRAME(&_hx_pos_39f5eab4124248fe_87_systemName)
+HXDLIN(  87)		return _hx_std_sys_string();
+            	}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC0(Sys_obj,systemName,return )
+
 
 Sys_obj::Sys_obj()
 {
@@ -70,6 +79,9 @@ bool Sys_obj::__GetStatic(const ::String &inName, Dynamic &outValue, ::hx::Prope
 	case 6:
 		if (HX_FIELD_EQ(inName,"stdout") ) { outValue = _hx_stdout_dyn(); return true; }
 		if (HX_FIELD_EQ(inName,"stderr") ) { outValue = _hx_stderr_dyn(); return true; }
+		break;
+	case 10:
+		if (HX_FIELD_EQ(inName,"systemName") ) { outValue = systemName_dyn(); return true; }
 	}
 	return false;
 }
@@ -85,6 +97,7 @@ static ::String Sys_obj_sStaticFields[] = {
 	HX_("print",2d,58,8b,c8),
 	HX_("stdout",cb,bf,f3,07),
 	HX_("stderr",a2,26,ec,07),
+	HX_("systemName",da,d8,82,f7),
 	::String(null())
 };
 

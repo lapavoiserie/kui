@@ -587,6 +587,19 @@
    <depend name="include/cui/event/MouseEvent.h"/>
    <depend name="include/cui/layout/Size.h"/>
   </file>
+  <file name="src/cui/backend/native/WindowsTerminal.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/cui/backend/native/WindowsTerminal.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+  </file>
+  <file name="src/cui/backend/native/Terminal.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/cui/backend/native/PosixTerminal.h"/>
+   <depend name="include/cui/backend/native/Terminal.h"/>
+   <depend name="include/cui/backend/native/WindowsTerminal.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+  </file>
   <file name="src/cui/backend/native/PosixTerminal.cpp" >
    <depend name="include/Sys.h"/>
    <depend name="include/cui/backend/native/PosixTerminal.h"/>
@@ -603,6 +616,8 @@
    <depend name="include/cui/backend/AnsiBackend.h"/>
    <depend name="include/cui/backend/Backend.h"/>
    <depend name="include/cui/backend/native/PosixTerminal.h"/>
+   <depend name="include/cui/backend/native/Terminal.h"/>
+   <depend name="include/cui/backend/native/WindowsTerminal.h"/>
    <depend name="include/cui/event/Event.h"/>
    <depend name="include/cui/event/KeyCode.h"/>
    <depend name="include/cui/event/KeyEvent.h"/>
@@ -725,6 +740,7 @@
    <depend name="include/cui/mui/TabView.h"/>
    <depend name="include/cui/mui/ScrollView.h"/>
    <depend name="include/cui/state/StateBase.h"/>
+   <depend name="include/cui/backend/native/Terminal.h"/>
    <depend name="include/BatteryApp.h"/>
   </file>
   <file name="src/__files__.cpp" if='HXCPP_DEBUGGER'>
