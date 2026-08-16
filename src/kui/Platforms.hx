@@ -37,6 +37,7 @@ class Platforms {
 	public static final IDS:Array<{id:String, name:String, note:String}> = [
 		{id: "macos", name: "macOS", note: "Reached through hxcpp under pui and cui, through Xcode under sui."},
 		{id: "ios", name: "iOS", note: "Xcode under sui; an application build script under pui."},
+		{id: "visionos", name: "visionOS", note: "Xcode under sui, which reads -D sui_visionos. Separate from ios: the frameworks differ and a capability written for one has no reason to compile for the other."},
 		{id: "android", name: "Android", note: "Gradle under aui; an application build script under pui."},
 		{id: "windows", name: "Windows", note: "MSBuild under wui; hxcpp under pui and cui."},
 		{id: "linux", name: "Linux", note: "hxcpp under cui; qmake under pui."},

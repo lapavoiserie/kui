@@ -10,6 +10,12 @@ others had nothing. The same camera got written six times, or not at all — and
 `pui`, which draws its own widgets and has no host toolkit to borrow from, would
 have written it a seventh.
 
+## Documentation
+
+<https://lapavoiserie.github.io/kui> — getting started, writing a capability,
+how a native payload reaches five different link steps, and what `kui`
+deliberately does not do.
+
 ## What an author writes
 
 A declaration, naming no platform:

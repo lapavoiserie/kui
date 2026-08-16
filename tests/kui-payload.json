@@ -1,0 +1,22 @@
+{
+  "backend": null,
+  "platform": "macos",
+  "toolchains": [],
+  "capabilities": [
+    {
+      "payload": {
+        "hxcpp": {
+          "libs": [
+            "-framework",
+            "IOKit"
+          ],
+          "files": [
+            "/Users/benjamindasnois/new-projects/kui/native/battery_mac.mm"
+          ]
+        }
+      },
+      "platform": "macos",
+      "type": "battery.platform.macos.Battery"
+    }
+  ]
+}

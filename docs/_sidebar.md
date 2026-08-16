@@ -1,0 +1,7 @@
+- [Home](/)
+- [Getting started](getting-started.md)
+- [Writing a capability](writing-a-capability.md)
+- [Platforms](platforms.md)
+- [Native payloads](native-payloads.md)
+- [For backend authors](backends.md)
+- [Limits](limits.md)
