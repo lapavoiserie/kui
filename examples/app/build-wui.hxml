@@ -1,0 +1,20 @@
+# The same source again, on WinUI 3 — where hxcpp compiles but MSBuild links.
+#
+# `battery.platform.windows.Battery` names PowrProf.lib in two sections of its
+# payload for exactly that reason: hxcpp's own `<lib>` entry reaches a link step
+# that never runs here.
+-cp src
+-lib mui
+-lib wui
+-lib kui
+-lib nui
+-lib rui
+-cp ../battery/src
+-D mui_backend=wui
+--macro rui.macros.ViewRule.register("mui.App", "body")
+--macro wui.macros.WinUIGenerator.register()
+--macro mui.macros.Bind.all()
+--macro wui.nui.Vocabulary.registerWithMui()
+--macro wui.kui.Platform.registerWithKui()
+--main BatteryApp
+-cpp build/cpp

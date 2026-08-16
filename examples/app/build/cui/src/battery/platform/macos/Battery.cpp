@@ -11,9 +11,9 @@
 #include <kui/Capability.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_a58869bd978a43f0_19_new,"battery.platform.macos.Battery","new",0x83f22c2a,"battery.platform.macos.Battery.new","battery/platform/macos/Battery.hx",19,0x5236a9a7)
-HX_LOCAL_STACK_FRAME(_hx_pos_a58869bd978a43f0_22_level,"battery.platform.macos.Battery","level",0xdf2777ce,"battery.platform.macos.Battery.level","battery/platform/macos/Battery.hx",22,0x5236a9a7)
-HX_LOCAL_STACK_FRAME(_hx_pos_a58869bd978a43f0_25_charging,"battery.platform.macos.Battery","charging",0x917a30a7,"battery.platform.macos.Battery.charging","battery/platform/macos/Battery.hx",25,0x5236a9a7)
+HX_DEFINE_STACK_FRAME(_hx_pos_a58869bd978a43f0_30_new,"battery.platform.macos.Battery","new",0x83f22c2a,"battery.platform.macos.Battery.new","battery/platform/macos/Battery.hx",30,0x5236a9a7)
+HX_LOCAL_STACK_FRAME(_hx_pos_a58869bd978a43f0_33_level,"battery.platform.macos.Battery","level",0xdf2777ce,"battery.platform.macos.Battery.level","battery/platform/macos/Battery.hx",33,0x5236a9a7)
+HX_LOCAL_STACK_FRAME(_hx_pos_a58869bd978a43f0_36_charging,"battery.platform.macos.Battery","charging",0x917a30a7,"battery.platform.macos.Battery.charging","battery/platform/macos/Battery.hx",36,0x5236a9a7)
 extern "C" int kui_battery_level();
 extern "C" bool kui_battery_charging();
 namespace battery{
@@ -21,7 +21,7 @@ namespace platform{
 namespace macos{
 
 void Battery_obj::__construct(){
-            	HX_STACKFRAME(&_hx_pos_a58869bd978a43f0_19_new)
+            	HX_STACKFRAME(&_hx_pos_a58869bd978a43f0_30_new)
             	}
 
 Dynamic Battery_obj::__CreateEmpty() { return new Battery_obj; }
@@ -60,16 +60,16 @@ void *Battery_obj::_hx_getInterface(int inHash) {
 }
 
 int Battery_obj::level(){
-            	HX_STACKFRAME(&_hx_pos_a58869bd978a43f0_22_level)
-HXDLIN(  22)		return kui_battery_level();
+            	HX_STACKFRAME(&_hx_pos_a58869bd978a43f0_33_level)
+HXDLIN(  33)		return kui_battery_level();
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC0(Battery_obj,level,return )
 
 bool Battery_obj::charging(){
-            	HX_STACKFRAME(&_hx_pos_a58869bd978a43f0_25_charging)
-HXDLIN(  25)		return kui_battery_charging();
+            	HX_STACKFRAME(&_hx_pos_a58869bd978a43f0_36_charging)
+HXDLIN(  36)		return kui_battery_charging();
             	}
 
 

@@ -99,7 +99,8 @@ class CapabilityMacro {
 
 		// The whole payload, every path resolved, for the four link steps that
 		// read the sidecar rather than Build.xml.
-		Emit.record(type.pack.concat([type.name]).join("."), resolved(literal, root));
+		var name = type.pack.concat([type.name]).join(".");
+		Emit.record(name, resolved(literal, root));
 
 		var hxcpp = fieldOf(literal, "hxcpp");
 		if (hxcpp == null) return;
@@ -110,15 +111,31 @@ class CapabilityMacro {
 		var flags = strings(fieldOf(hxcpp, "flags"));
 		var libs = strings(fieldOf(hxcpp, "libs"));
 
+		// A group of its own, never `<files id="haxe">`. Two reasons, and the
+		// first one is not a matter of taste:
+		//
+		// hxcpp's own group carries `<precompiledheader name="hxcpp">`, and under
+		// MSVC every file in a group with a precompiled header must include it.
+		// A capability's C++ has no reason to include `hxcpp.h`, and adding it to
+		// that group fails the build with "unexpected end of file while looking
+		// for precompiled header" — an error that names the capability's file and
+		// explains nothing about why it is being asked for hxcpp's header.
+		//
+		// And a `compilerflag` in that group applies to **every** generated Haxe
+		// source. One capability's `-I` would reach all of them, which is
+		// harmless until two capabilities disagree, and a `flags` entry would be
+		// applied to the whole program by a declaration that reads as local.
+		var group = "kui_" + name.split(".").join("_");
 		if (files.length > 0 || includes.length > 0 || flags.length > 0) {
-			xml.add('<files id="haxe">');
+			xml.add('<files id="' + group + '">');
 			for (include in includes) xml.add('<compilerflag value="-I' + root + "/" + include + '" />');
 			for (flag in flags) xml.add('<compilerflag value="' + flag + '" />');
 			for (file in files) xml.add('<file name="' + root + "/" + file + '" />');
 			xml.add("</files>");
 		}
-		if (libs.length > 0) {
+		if (files.length > 0 || includes.length > 0 || flags.length > 0 || libs.length > 0) {
 			xml.add('<target id="haxe">');
+			if (files.length > 0) xml.add('<files id="' + group + '" />');
 			for (lib in libs) xml.add('<lib name="' + lib + '" />');
 			xml.add("</target>");
 		}

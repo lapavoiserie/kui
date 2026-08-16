@@ -70,6 +70,9 @@
 #ifndef INCLUDED_cui_state_StateBase
 #include <cui/state/StateBase.h>
 #endif
+#ifndef INCLUDED_BatteryApp
+#include <BatteryApp.h>
+#endif
 #ifndef INCLUDED_sys_io_FileOutput
 #include <sys/io/FileOutput.h>
 #endif
@@ -310,9 +313,6 @@
 #ifndef INCLUDED_Std
 #include <Std.h>
 #endif
-#ifndef INCLUDED_BatteryApp
-#include <BatteryApp.h>
-#endif
 #ifndef INCLUDED_cui_mui_App
 #include <cui/mui/App.h>
 #endif
@@ -349,6 +349,7 @@ __files__boot();
 ::cui::mui::TabView_obj::__register();
 ::cui::mui::ScrollView_obj::__register();
 ::cui::state::StateBase_obj::__register();
+::BatteryApp_obj::__register();
 ::sys::io::FileOutput_obj::__register();
 ::rui::Observable_obj::__register();
 ::haxe::iterators::ArrayIterator_obj::__register();
@@ -429,7 +430,6 @@ __files__boot();
 ::Sys_obj::__register();
 ::StringBuf_obj::__register();
 ::Std_obj::__register();
-::BatteryApp_obj::__register();
 ::cui::mui::App_obj::__register();
 ::cui::App_obj::__register();
 ::mui::ui::TextScale_obj::__boot();
@@ -449,6 +449,7 @@ __files__boot();
 ::cui::event::KeyCode_obj::__boot();
 ::cui::event::Event_obj::__boot();
 ::haxe::Log_obj::__boot();
+::BatteryApp_obj::__boot();
 ::cui::state::StateBase_obj::__boot();
 ::cui::mui::ScrollView_obj::__boot();
 ::cui::mui::TabView_obj::__boot();
