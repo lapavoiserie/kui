@@ -1,0 +1,10 @@
+{
+    "name": "kui",
+    "url": "https://github.com/lapavoiserie/kui",
+    "license": "MIT",
+    "description": "Native capabilities for La Pavoiserie — written once, keyed by platform, used from every backend.",
+    "version": "0.1.0",
+    "classPath": "src",
+    "tags": ["native", "platform", "extension", "haxe"],
+    "dependencies": {}
+}
