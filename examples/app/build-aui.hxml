@@ -1,0 +1,20 @@
+# The same source again, on Android — where the link step is Gradle, and the
+# capability's payload is Kotlin and a Maven coordinate rather than object files.
+#
+# Nothing in `src/` changes. `battery.platform.android.Battery` is chosen because
+# this build registered `android` with `kui`, exactly as the macOS one chose
+# `battery.platform.macos.Battery`.
+-cp src
+-lib mui
+-lib aui
+-lib kui
+-lib rui
+-lib nui
+-cp ../battery/src
+-D mui_backend=aui
+-D jvm
+--jvm build/app-logic.jar
+--macro aui.macros.ComposeGenerator.register()
+--macro mui.macros.Bind.all()
+--macro aui.kui.Platform.registerWithKui()
+--main BatteryApp

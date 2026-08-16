@@ -33,6 +33,24 @@ class Sidecar {
 			catch (_:Dynamic) new Sidecar({capabilities: []});
 	}
 
+	/**
+		The same reader over payloads still held in memory.
+
+		For a generator that runs **inside the compilation** rather than after it —
+		`aui`'s `GradleProject`, `wui`'s `ProjectGenerator`. Those hook
+		`Context.onAfterGenerate` just as `kui.macros.Emit` does, and the order two
+		such callbacks run in is the order they were registered: a backend's
+		`--macro …register()` line runs at initialisation, before any capability has
+		been built, so the backend's callback is always registered first and always
+		runs first. It would read a sidecar that does not exist yet.
+
+		So an in-process consumer asks `kui.macros.Emit.current()` for this, and only
+		a separate process — `sui`'s CLI, a `.pro`, a shell script — reads the file.
+		Same class either way, so knowing one is knowing the other.
+	**/
+	public static function of(capabilities:Array<Dynamic>):Sidecar
+		return new Sidecar({capabilities: capabilities});
+
 	/** Whether anything at all declared a payload. **/
 	public function any():Bool
 		return capabilities().length > 0;

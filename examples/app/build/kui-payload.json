@@ -1,0 +1,23 @@
+{
+  "backend": "aui",
+  "platform": "android",
+  "toolchains": [
+    "gradle"
+  ],
+  "capabilities": [
+    {
+      "payload": {
+        "gradle": {
+          "dependencies": [
+            "androidx.annotation:annotation:1.9.1"
+          ],
+          "sources": [
+            "/Users/benjamindasnois/new-projects/kui/examples/battery/native/BatteryAndroid.kt"
+          ]
+        }
+      },
+      "platform": "android",
+      "type": "battery.platform.android.Battery"
+    }
+  ]
+}

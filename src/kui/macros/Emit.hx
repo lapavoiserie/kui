@@ -51,6 +51,22 @@ class Emit {
 		}
 	}
 
+	/**
+		Every payload declared so far, for a generator running in this compilation.
+
+		`aui` writes `build.gradle.kts` and `wui` a `.vcxproj` from
+		`Context.onAfterGenerate`, the same hook `write` uses — and theirs is
+		registered first, from the `--macro` line, so by the time they run the
+		sidecar has not been written. They ask here instead and get the same reader
+		over the same data.
+
+		Called from a generator's callback, i.e. after typing, so the roster is
+		complete. Called earlier it would answer with whatever had been built by
+		then, which is why nothing calls it earlier.
+	**/
+	public static function current():kui.build.Sidecar
+		return kui.build.Sidecar.of(cast payloads);
+
 	static function write():Void {
 		if (payloads.length == 0) return;
 
