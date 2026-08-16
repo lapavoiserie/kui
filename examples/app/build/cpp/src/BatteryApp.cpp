@@ -13,8 +13,8 @@
 #ifndef INCLUDED_battery_Battery
 #include <battery/Battery.h>
 #endif
-#ifndef INCLUDED_battery_platform_ios_Battery
-#include <battery/platform/ios/Battery.h>
+#ifndef INCLUDED_battery_platform_macos_Battery
+#include <battery/platform/macos/Battery.h>
 #endif
 #ifndef INCLUDED_haxe_io_Encoding
 #include <haxe/io/Encoding.h>
@@ -120,7 +120,7 @@ HXDLIN(  28)			return  ::sui::mui::Text_obj::__alloc( HX_CTX ,_hx_tmp,null());
             		HX_END_LOCAL_FUNC0(return)
 
             	HX_GC_STACKFRAME(&_hx_pos_2638c642c45cccdf_20_body)
-HXLINE(  21)		::Dynamic battery = ::kui::Kui_obj::instance(::hx::ClassOf< ::battery::platform::ios::Battery >());
+HXLINE(  21)		::Dynamic battery = ::kui::Kui_obj::instance(::hx::ClassOf< ::battery::platform::macos::Battery >());
 HXLINE(  22)		int level = ::battery::Battery_obj::level(battery);
 HXLINE(  23)		::BatteryApp_obj::announce();
 HXLINE(  26)		 ::sui::mui::Text _hx_tmp =  ::sui::mui::Text_obj::__alloc( HX_CTX ,HX_("A capability, through mui",fb,88,10,5c),::mui::ui::TextScale_obj::Title_dyn());
@@ -140,7 +140,7 @@ HXLINE(  49)		if (::BatteryApp_obj::announced) {
 HXLINE(  49)			return;
             		}
 HXLINE(  50)		::BatteryApp_obj::announced = true;
-HXLINE(  51)		::Dynamic battery = ::kui::Kui_obj::instance(::hx::ClassOf< ::battery::platform::ios::Battery >());
+HXLINE(  51)		::Dynamic battery = ::kui::Kui_obj::instance(::hx::ClassOf< ::battery::platform::macos::Battery >());
 HXLINE(  52)		 ::haxe::io::Output _hx_tmp = ::Sys_obj::_hx_stderr();
 HXDLIN(  52)		::String _hx_tmp1 = ((HX_("kui: level ",c1,1f,70,10) + ::battery::Battery_obj::level(battery)) + HX_(", charging ",5b,7d,b5,e9));
 HXDLIN(  52)		_hx_tmp->writeString(((_hx_tmp1 + ::Std_obj::string(::battery::Battery_obj::charging(battery))) + HX_("\n",0a,00,00,00)),null());

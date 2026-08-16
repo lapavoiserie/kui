@@ -1,6 +1,6 @@
 {
   "backend": "sui",
-  "platform": "ios",
+  "platform": "macos",
   "toolchains": [
     "hxcpp",
     "xcode"
@@ -11,22 +11,23 @@
         "hxcpp": {
           "libs": [
             "-framework",
-            "UIKit",
+            "IOKit",
             "-framework",
-            "Foundation"
+            "CoreFoundation"
           ],
           "files": [
-            "/Users/benjamindasnois/new-projects/kui/examples/battery/native/battery_ios.mm"
+            "/Users/benjamindasnois/new-projects/kui/examples/battery/native/battery_mac.mm"
           ]
         },
         "xcode": {
           "frameworks": [
-            "UIKit"
+            "IOKit",
+            "CoreFoundation"
           ]
         }
       },
-      "platform": "ios",
-      "type": "battery.platform.ios.Battery"
+      "platform": "macos",
+      "type": "battery.platform.macos.Battery"
     }
   ]
 }
