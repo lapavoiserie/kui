@@ -60,8 +60,8 @@ device first.
 
 ## What is verified, and what is not
 
-The four non-hxcpp link channels each carry a real capability, and three of the
-four have been run:
+The four non-hxcpp link channels each carry a real capability, and all four have
+been run:
 
 | Channel | Built | What it answered |
 |---|---|---|
@@ -70,19 +70,29 @@ four have been run:
 | Xcode | iOS | `sui` on a simulator — `level -1, power source unknown` |
 | Gradle | Android | an emulator, denied sysfs — `level -1, power source unknown` |
 | MSBuild | Windows | a desktop, `PowrProf.lib` linked — `level -1, on mains power` |
-| qmake | SailfishOS, aarch64 | compiled and linked; **not yet run on a device** |
+| qmake | SailfishOS, aarch64 | a Jolla phone — `level 18, on battery` |
 
-Only macOS was in a position to return a charge figure, and it returned the
-right one — `pmset` agrees on all three of level, mains and not-charging. Each
-`-1` is the contract's "no reading here", confirmed independently: `wmic`
+**Every channel has now been run, not merely built.**
+
+Two machines were in a position to return a charge figure, and both returned the
+right one: macOS matched `pmset` on all three of level, mains and
+not-charging, and the phone matched its own `/sys/class/power_supply/battery`
+— `18` and `Discharging` — read over ssh in the same minute.
+
+The phone is the only device in the set with a real battery that is neither full
+nor plugged in, which makes it the only run that exercises `powered()` returning
+**false** with a genuine percentage beside it. Everything else could only have
+confirmed the true branch.
+
+Each `-1` is the contract's "no reading here", confirmed independently: `wmic`
 reports no battery on the Windows machine, `adb shell` is refused the same sysfs
-node the app is, and an iOS simulator is not given a battery. What those runs
-prove is that the native code was linked, found and called.
+node the app is, and an iOS simulator is not given a battery.
 
 Note what the Windows and iOS rows do **not** say. A desktop knows it is on
 mains; a simulator knows nothing, and says so. Collapsing the two would have
 been easy and would have been a guess.
 
-The qmake channel is compiled and linked by the Sailfish SDK container, which is
-the step that proves the `.pri` reaches qmake. Running it on the phone is
-pending and is the one claim not to make until it has happened.
+The qmake channel is the one with two proofs, and it needed both: the Sailfish
+SDK container compiling and linking `battery_sysfs.cpp` for aarch64 shows the
+`.pri` reaches qmake, and the phone running it shows the result is a working
+application rather than a successful build.
