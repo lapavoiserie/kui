@@ -96,6 +96,11 @@ class CapabilityMacro {
 		Context.typeof(macro ($literal : kui.build.Payload));
 
 		var root = libraryRoot(type);
+
+		// The whole payload, every path resolved, for the four link steps that
+		// read the sidecar rather than Build.xml.
+		Emit.record(type.pack.concat([type.name]).join("."), resolved(literal, root));
+
 		var hxcpp = fieldOf(literal, "hxcpp");
 		if (hxcpp == null) return;
 
@@ -142,6 +147,77 @@ class CapabilityMacro {
 		// No haxelib.json above it: a local capability, whose paths are relative
 		// to wherever it sits.
 		return at;
+	}
+
+	/**
+		The payload as plain data, with every path made absolute.
+
+		Which fields are paths is stated rather than guessed: `files`, `includes`
+		and `sources` name things on disk, and everything else — a framework, a
+		Gradle coordinate, a `pkgconfig` name — is a token the build system
+		resolves itself. Resolving those would turn `IOKit` into a directory that
+		does not exist.
+	**/
+	static final PATHS = ["files", "includes", "sources"];
+
+	static function resolved(literal:Expr, root:String):Dynamic {
+		var out:Dynamic = {};
+		switch (literal.expr) {
+			case EObjectDecl(sections):
+				for (section in sections) {
+					var content:Dynamic = {};
+					switch (section.expr.expr) {
+						case EObjectDecl(entries):
+							for (entry in entries) {
+								var values = strings(entry.expr);
+								if (values.length > 0 || isStringArray(entry.expr)) {
+									Reflect.setField(content, entry.field,
+										PATHS.indexOf(entry.field) >= 0
+											? [for (v in values) absolute(root, v)] : values);
+								} else {
+									// An array of objects — a NuGet package, an SPM
+									// coordinate. Carried through as written.
+									Reflect.setField(content, entry.field, objects(entry.expr));
+								}
+							}
+						case _:
+					}
+					Reflect.setField(out, section.field, content);
+				}
+			case _:
+		}
+		return out;
+	}
+
+	static function absolute(root:String, path:String):String
+		return haxe.io.Path.isAbsolute(path) ? path : root + "/" + path;
+
+	static function isStringArray(e:Expr):Bool {
+		return switch (e.expr) {
+			case EArrayDecl(values): values.length == 0
+					|| switch (values[0].expr) { case EConst(CString(_)): true; case _: false; };
+			case _: false;
+		}
+	}
+
+	static function objects(e:Expr):Array<Dynamic> {
+		return switch (e.expr) {
+			case EArrayDecl(values): [
+					for (value in values)
+						switch (value.expr) {
+							case EObjectDecl(fields):
+								var made:Dynamic = {};
+								for (field in fields)
+									switch (field.expr.expr) {
+										case EConst(CString(s)): Reflect.setField(made, field.field, s);
+										case _:
+									}
+								made;
+							case _: ({}:Dynamic);
+						}
+				];
+			case _: [];
+		}
 	}
 
 	static function fieldOf(e:Expr, name:String):Null<Expr> {

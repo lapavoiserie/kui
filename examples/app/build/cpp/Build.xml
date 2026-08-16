@@ -1,0 +1,543 @@
+<xml>
+<set name="HXCPP_API_LEVEL" value="430" />
+<files id="haxe">
+<compilerflag value="-Iinclude"/>
+  <file name="src/sys/io/FileOutput.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/FileOutput.h"/>
+  </file>
+  <file name="src/sui/ui/HorizontalAlignment.cpp" >
+   <depend name="include/sui/ui/HorizontalAlignment.h"/>
+  </file>
+  <file name="src/sui/ui/Spacer.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/Spacer.h"/>
+  </file>
+  <file name="src/sui/ui/List.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/List.h"/>
+  </file>
+  <file name="src/sui/ui/Image.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/modifiers/ViewModifier.h"/>
+   <depend name="include/sui/ui/Image.h"/>
+  </file>
+  <file name="src/sui/ui/VerticalAlignment.cpp" >
+   <depend name="include/sui/ui/VerticalAlignment.h"/>
+  </file>
+  <file name="src/sui/ui/CommandMenu.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/CommandMenu.h"/>
+  </file>
+  <file name="src/sui/state/_StateOr/StateOr_Impl_.cpp" >
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/state/State.h"/>
+   <depend name="include/sui/state/_StateOr/StateOr_Impl_.h"/>
+  </file>
+  <file name="src/sui/state/State.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/runtime/ReadScope.h"/>
+   <depend name="include/sui/state/State.h"/>
+  </file>
+  <file name="src/sui/state/Observable.cpp" >
+   <depend name="include/sui/state/Observable.h"/>
+  </file>
+  <file name="src/sui/state/Callbacks.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/sui/state/Callbacks.h"/>
+  </file>
+  <file name="src/sui/state/Binding.cpp" >
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/state/Binding.h"/>
+   <depend name="include/sui/state/State.h"/>
+  </file>
+  <file name="src/sui/state/AnimationCurve.cpp" >
+   <depend name="include/sui/state/AnimationCurve.h"/>
+  </file>
+  <file name="src/sui/runtime/ViewNodeBridge.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/nui/NodeSource.h"/>
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/nui/ViewSource.h"/>
+   <depend name="include/sui/runtime/ReadScope.h"/>
+   <depend name="include/sui/runtime/ViewNodeBridge.h"/>
+   <depend name="include/sui/state/State.h"/>
+  </file>
+  <file name="src/sui/runtime/_ReadScope/Compare.cpp" >
+   <depend name="include/sui/runtime/_ReadScope/Compare.h"/>
+  </file>
+  <file name="src/sui/runtime/ReadScope.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/sui/runtime/ReadScope.h"/>
+   <depend name="include/sui/runtime/_ReadScope/Compare.h"/>
+  </file>
+  <file name="src/sui/nui/ViewSource.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/ObjectMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/nui/NodeSource.h"/>
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ViewComponent.h"/>
+   <depend name="include/sui/modifiers/ViewModifier.h"/>
+   <depend name="include/sui/nui/ViewSource.h"/>
+   <depend name="include/sui/runtime/ReadScope.h"/>
+   <depend name="include/sui/state/State.h"/>
+   <depend name="include/sui/ui/HorizontalAlignment.h"/>
+   <depend name="include/sui/ui/VStack.h"/>
+  </file>
+  <file name="src/sui/mui/ZStack.cpp" >
+   <depend name="include/sui/Alignment.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/ZStack.h"/>
+   <depend name="include/sui/ui/ZStack.h"/>
+  </file>
+  <file name="src/sui/ui/ZStack.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/sui/Alignment.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/ZStack.h"/>
+  </file>
+  <file name="src/sui/mui/VStack.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/VStack.h"/>
+   <depend name="include/sui/ui/HorizontalAlignment.h"/>
+   <depend name="include/sui/ui/VStack.h"/>
+  </file>
+  <file name="src/sui/mui/_ToggleBinding/ToggleBinding_Impl_.cpp" >
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/mui/_ToggleBinding/ToggleBinding_Impl_.h"/>
+   <depend name="include/sui/state/State.h"/>
+  </file>
+  <file name="src/sui/mui/Toggle.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/Toggle.h"/>
+   <depend name="include/sui/ui/Toggle.h"/>
+  </file>
+  <file name="src/sui/ui/Toggle.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/Toggle.h"/>
+  </file>
+  <file name="src/sui/mui/_TextInputBinding/TextInputBinding_Impl_.cpp" >
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/mui/_TextInputBinding/TextInputBinding_Impl_.h"/>
+   <depend name="include/sui/state/State.h"/>
+  </file>
+  <file name="src/sui/mui/TextInput.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/TextInput.h"/>
+   <depend name="include/sui/ui/TextField.h"/>
+  </file>
+  <file name="src/sui/ui/TextField.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/TextField.h"/>
+  </file>
+  <file name="src/sui/mui/Text.cpp" >
+   <depend name="include/mui/ui/TextScale.h"/>
+   <depend name="include/sui/FontStyle.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/Text.h"/>
+   <depend name="include/sui/ui/Text.h"/>
+  </file>
+  <file name="src/sui/ui/Text.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/Text.h"/>
+  </file>
+  <file name="src/sui/mui/TabView.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/TabView.h"/>
+   <depend name="include/sui/ui/TabView.h"/>
+  </file>
+  <file name="src/sui/ui/TabView.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/TabView.h"/>
+  </file>
+  <file name="src/sui/mui/_SliderBinding/SliderBinding_Impl_.cpp" >
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/mui/_SliderBinding/SliderBinding_Impl_.h"/>
+   <depend name="include/sui/state/State.h"/>
+  </file>
+  <file name="src/sui/mui/Slider.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/Slider.h"/>
+   <depend name="include/sui/ui/Slider.h"/>
+  </file>
+  <file name="src/sui/ui/Slider.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/Slider.h"/>
+  </file>
+  <file name="src/sui/mui/ScrollView.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/ScrollView.h"/>
+   <depend name="include/sui/ui/ScrollView.h"/>
+  </file>
+  <file name="src/sui/ui/ScrollView.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/ScrollView.h"/>
+  </file>
+  <file name="src/sui/mui/SafeArea.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/SafeArea.h"/>
+   <depend name="include/sui/ui/HorizontalAlignment.h"/>
+   <depend name="include/sui/ui/VStack.h"/>
+  </file>
+  <file name="src/sui/ui/VStack.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/HorizontalAlignment.h"/>
+   <depend name="include/sui/ui/VStack.h"/>
+  </file>
+  <file name="src/sui/mui/ProgressView.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/ProgressView.h"/>
+   <depend name="include/sui/ui/ProgressView.h"/>
+  </file>
+  <file name="src/sui/ui/ProgressView.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/ProgressView.h"/>
+  </file>
+  <file name="src/sui/mui/HStack.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/HStack.h"/>
+   <depend name="include/sui/ui/HStack.h"/>
+   <depend name="include/sui/ui/VerticalAlignment.h"/>
+  </file>
+  <file name="src/sui/ui/HStack.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/HStack.h"/>
+   <depend name="include/sui/ui/VerticalAlignment.h"/>
+  </file>
+  <file name="src/sui/mui/ForEach.cpp" >
+   <depend name="include/sui/mui/ForEach.h"/>
+  </file>
+  <file name="src/sui/mui/Divider.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/Divider.h"/>
+  </file>
+  <file name="src/sui/mui/ConditionalView.cpp" >
+   <depend name="include/rui/state/State.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/ConditionalView.h"/>
+   <depend name="include/sui/state/State.h"/>
+   <depend name="include/sui/ui/ConditionalView.h"/>
+  </file>
+  <file name="src/sui/ui/ConditionalView.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/ConditionalView.h"/>
+  </file>
+  <file name="src/sui/mui/Button.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/Button.h"/>
+   <depend name="include/sui/ui/Button.h"/>
+  </file>
+  <file name="src/sui/ui/Button.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/Button.h"/>
+  </file>
+  <file name="src/sui/modifiers/ShapeType.cpp" >
+   <depend name="include/sui/modifiers/ShapeType.h"/>
+  </file>
+  <file name="src/sui/modifiers/Edge.cpp" >
+   <depend name="include/sui/modifiers/Edge.h"/>
+  </file>
+  <file name="src/sui/modifiers/ViewModifier.cpp" >
+   <depend name="include/sui/Alignment.h"/>
+   <depend name="include/sui/ButtonStyleValue.h"/>
+   <depend name="include/sui/ColorValue.h"/>
+   <depend name="include/sui/FontStyle.h"/>
+   <depend name="include/sui/MaterialStyle.h"/>
+   <depend name="include/sui/PickerStyleValue.h"/>
+   <depend name="include/sui/TextAlignment.h"/>
+   <depend name="include/sui/TextFieldStyleValue.h"/>
+   <depend name="include/sui/ToggleStyleValue.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/modifiers/Edge.h"/>
+   <depend name="include/sui/modifiers/ShapeType.h"/>
+   <depend name="include/sui/modifiers/ViewModifier.h"/>
+   <depend name="include/sui/state/AnimationCurve.h"/>
+  </file>
+  <file name="src/sui/ViewComponent.cpp" >
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ViewComponent.h"/>
+  </file>
+  <file name="src/sui/MaterialStyle.cpp" >
+   <depend name="include/sui/MaterialStyle.h"/>
+  </file>
+  <file name="src/sui/PickerStyleValue.cpp" >
+   <depend name="include/sui/PickerStyleValue.h"/>
+  </file>
+  <file name="src/sui/ButtonStyleValue.cpp" >
+   <depend name="include/sui/ButtonStyleValue.h"/>
+  </file>
+  <file name="src/sui/ToggleStyleValue.cpp" >
+   <depend name="include/sui/ToggleStyleValue.h"/>
+  </file>
+  <file name="src/sui/TextFieldStyleValue.cpp" >
+   <depend name="include/sui/TextFieldStyleValue.h"/>
+  </file>
+  <file name="src/sui/TextAlignment.cpp" >
+   <depend name="include/sui/TextAlignment.h"/>
+  </file>
+  <file name="src/sui/Alignment.cpp" >
+   <depend name="include/sui/Alignment.h"/>
+  </file>
+  <file name="src/sui/ColorValue.cpp" >
+   <depend name="include/sui/ColorValue.h"/>
+  </file>
+  <file name="src/sui/FontStyle.cpp" >
+   <depend name="include/sui/FontStyle.h"/>
+  </file>
+  <file name="src/sui/View.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/sui/Alignment.h"/>
+   <depend name="include/sui/ButtonStyleValue.h"/>
+   <depend name="include/sui/ColorValue.h"/>
+   <depend name="include/sui/FontStyle.h"/>
+   <depend name="include/sui/MaterialStyle.h"/>
+   <depend name="include/sui/PickerStyleValue.h"/>
+   <depend name="include/sui/TextAlignment.h"/>
+   <depend name="include/sui/TextFieldStyleValue.h"/>
+   <depend name="include/sui/ToggleStyleValue.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/modifiers/ViewModifier.h"/>
+   <depend name="include/sui/state/AnimationCurve.h"/>
+  </file>
+  <file name="src/sui/Scene.cpp" >
+   <depend name="include/sui/Scene.h"/>
+   <depend name="include/sui/View.h"/>
+  </file>
+  <file name="src/rui/state/State.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/rui/Signal.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/rui/Signal.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Observable.h"/>
+   <depend name="include/rui/Signal.h"/>
+  </file>
+  <file name="src/rui/Effect.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Scheduler.h"/>
+   <depend name="include/rui/Signal.h"/>
+  </file>
+  <file name="src/rui/Scheduler.cpp" >
+   <depend name="include/rui/Scheduler.h"/>
+  </file>
+  <file name="src/rui/Observable.cpp" >
+   <depend name="include/rui/Observable.h"/>
+  </file>
+  <file name="src/nui/NodeSource.cpp" >
+   <depend name="include/nui/NodeSource.h"/>
+  </file>
+  <file name="src/mui/ui/TextScale.cpp" >
+   <depend name="include/mui/ui/TextScale.h"/>
+  </file>
+  <file name="src/kui/Kui.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/kui/Kui.h"/>
+  </file>
+  <file name="src/haxe/iterators/ArrayIterator.cpp" >
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+  </file>
+  <file name="src/haxe/io/Output.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+  </file>
+  <file name="src/haxe/io/Error.cpp" >
+   <depend name="include/haxe/io/Error.h"/>
+  </file>
+  <file name="src/haxe/io/Encoding.cpp" >
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/io/Bytes.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/exceptions/NotImplementedException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/exceptions/PosException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/ds/StringMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+  </file>
+  <file name="src/haxe/ds/ObjectMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/ObjectMap.h"/>
+  </file>
+  <file name="src/haxe/ds/IntMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+  </file>
+  <file name="src/haxe/NativeStackTrace.cpp" >
+   <depend name="include/haxe/NativeStackTrace.h"/>
+  </file>
+  <file name="src/haxe/Log.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/haxe/Exception.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/NativeStackTrace.h"/>
+  </file>
+  <file name="src/haxe/IMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+  </file>
+  <file name="src/battery/platform/macos/Battery.cpp" >
+   <depend name="include/battery/Battery.h"/>
+   <depend name="include/battery/platform/macos/Battery.h"/>
+   <depend name="include/kui/Capability.h"/>
+  </file>
+  <file name="src/battery/Battery.cpp" >
+   <depend name="include/battery/Battery.h"/>
+   <depend name="include/kui/Capability.h"/>
+  </file>
+  <file name="src/kui/Capability.cpp" >
+   <depend name="include/kui/Capability.h"/>
+  </file>
+  <file name="src/Type.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Type.h"/>
+  </file>
+  <file name="src/Sys.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/FileOutput.h"/>
+  </file>
+  <file name="src/StringBuf.cpp" >
+   <depend name="include/StringBuf.h"/>
+  </file>
+  <file name="src/Std.cpp" >
+   <depend name="include/Std.h"/>
+  </file>
+  <file name="src/Reflect.cpp" >
+   <depend name="include/Reflect.h"/>
+  </file>
+  <file name="src/BatteryApp.cpp" >
+   <depend name="include/BatteryApp.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Sys.h"/>
+   <depend name="include/battery/Battery.h"/>
+   <depend name="include/battery/platform/macos/Battery.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/kui/Kui.h"/>
+   <depend name="include/mui/ui/TextScale.h"/>
+   <depend name="include/sui/App.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/mui/App.h"/>
+   <depend name="include/sui/mui/Text.h"/>
+   <depend name="include/sui/mui/VStack.h"/>
+   <depend name="include/sui/ui/Text.h"/>
+   <depend name="include/sui/ui/VStack.h"/>
+  </file>
+  <file name="src/sui/mui/App.cpp" >
+   <depend name="include/sui/App.h"/>
+   <depend name="include/sui/mui/App.h"/>
+  </file>
+  <file name="src/sui/App.cpp" >
+   <depend name="include/sui/App.h"/>
+   <depend name="include/sui/Scene.h"/>
+   <depend name="include/sui/View.h"/>
+   <depend name="include/sui/ui/CommandMenu.h"/>
+  </file>
+  <file name="src/__boot__.cpp" >
+   <depend name="include/sui/ui/HorizontalAlignment.h"/>
+   <depend name="include/sui/ui/VerticalAlignment.h"/>
+   <depend name="include/sui/state/AnimationCurve.h"/>
+   <depend name="include/sui/modifiers/ShapeType.h"/>
+   <depend name="include/sui/modifiers/Edge.h"/>
+   <depend name="include/sui/modifiers/ViewModifier.h"/>
+   <depend name="include/sui/MaterialStyle.h"/>
+   <depend name="include/sui/PickerStyleValue.h"/>
+   <depend name="include/sui/ButtonStyleValue.h"/>
+   <depend name="include/sui/ToggleStyleValue.h"/>
+   <depend name="include/sui/TextFieldStyleValue.h"/>
+   <depend name="include/sui/TextAlignment.h"/>
+   <depend name="include/sui/Alignment.h"/>
+   <depend name="include/sui/ColorValue.h"/>
+   <depend name="include/sui/FontStyle.h"/>
+   <depend name="include/sui/Scene.h"/>
+   <depend name="include/mui/ui/TextScale.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/sui/state/State.h"/>
+   <depend name="include/sui/state/Callbacks.h"/>
+   <depend name="include/sui/runtime/ViewNodeBridge.h"/>
+   <depend name="include/sui/runtime/ReadScope.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Scheduler.h"/>
+   <depend name="include/kui/Kui.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/__files__.cpp" if='HXCPP_DEBUGGER'>
+  </file>
+   <file name="${HXCPP}/src/hx/NoFiles.cpp" unless="HXCPP_DEBUGGER" />
+  <file name="src/__resources__.cpp" >
+  </file>
+</files>
+<files id="__lib__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__lib__.cpp" >
+   <depend name="include/BatteryApp.h"/>
+   <depend name="include/sui/App.h"/>
+   <depend name="include/sui/mui/App.h"/>
+  </file>
+</files>
+<files id="__main__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__main__.cpp" >
+   <depend name="include/BatteryApp.h"/>
+   <depend name="include/sui/App.h"/>
+   <depend name="include/sui/mui/App.h"/>
+  </file>
+</files>
+<files id="__resources__">
+</files>
+<files id="__externs__">
+</files>
+<set name="HAXE_OUTPUT" value="BatteryApp" />
+<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+<files id="haxe"><file name="/Users/benjamindasnois/new-projects/kui/examples/battery/native/battery_mac.mm" /></files><target id="haxe"><lib name="-framework" /><lib name="IOKit" /><lib name="-framework" /><lib name="CoreFoundation" /></target>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<error value="Hxcpp is out of date - please update" unlessApi="430" />
+</xml>

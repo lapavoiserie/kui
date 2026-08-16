@@ -1,0 +1,5 @@
+{
+    "appName": "BatteryApp",
+    "bundleIdentifier": "com.lapavoiserie.kui.battery",
+    "bundleIdPrefix": "com.lapavoiserie.kui"
+}
