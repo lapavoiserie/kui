@@ -25,8 +25,33 @@ class BatteryApp extends App {
 		return new VStack([
 			new Text("A capability, through mui", Title),
 			new Text(level < 0 ? "no battery on this machine" : 'charge: $level %'),
-			new Text(battery.charging() ? "charging" : "on battery"),
+			new Text(supply(battery, level)),
 		], 10);
+	}
+
+	/**
+		Four states, because two lied and three contradicted the line above.
+
+		This line first read `charging() ? "charging" : "on battery"`, and it told
+		a laptop plugged in at 100 % that it was running on battery — the battery
+		is *charged*, not *charging*, so the flag is false with the cable in the
+		wall. The bug was not in the native code, which answered exactly what it
+		was asked; it was a question with two answers where the world has more.
+
+		Three answers were still not enough, and the machine that showed it was an
+		iOS simulator: `level()` said -1, so the line above read "no battery on
+		this machine", while this one read "on battery". Both from the same
+		object, in the same frame.
+
+		So the two facts are read together. `level() < 0` means there is no
+		reading, and what that means depends on whether the mains is connected: a
+		desktop is on mains power, and a machine that cannot tell either way says
+		so rather than picking the reassuring one.
+	**/
+	static function supply(battery:battery.Battery, level:Int):String {
+		if (!battery.powered()) return level < 0 ? "power source unknown" : "on battery";
+		if (level < 0) return "on mains power";
+		return battery.charging() ? "charging" : "plugged in, not charging";
 	}
 
 	/**
@@ -49,8 +74,8 @@ class BatteryApp extends App {
 		if (announced) return;
 		announced = true;
 		var battery = kui.Kui.get(battery.Battery);
-		Sys.stderr().writeString('kui: level ${battery.level()}, charging '
-			+ battery.charging() + "\n");
+		var level = battery.level();
+		Sys.stderr().writeString('kui: level $level, ' + supply(battery, level) + "\n");
 	}
 
 	static function main() {

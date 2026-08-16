@@ -420,9 +420,9 @@
   <file name="src/haxe/IMap.cpp" >
    <depend name="include/haxe/IMap.h"/>
   </file>
-  <file name="src/battery/platform/macos/Battery.cpp" >
+  <file name="src/battery/platform/ios/Battery.cpp" >
    <depend name="include/battery/Battery.h"/>
-   <depend name="include/battery/platform/macos/Battery.h"/>
+   <depend name="include/battery/platform/ios/Battery.h"/>
    <depend name="include/kui/Capability.h"/>
   </file>
   <file name="src/battery/Battery.cpp" >
@@ -452,10 +452,9 @@
   </file>
   <file name="src/BatteryApp.cpp" >
    <depend name="include/BatteryApp.h"/>
-   <depend name="include/Std.h"/>
    <depend name="include/Sys.h"/>
    <depend name="include/battery/Battery.h"/>
-   <depend name="include/battery/platform/macos/Battery.h"/>
+   <depend name="include/battery/platform/ios/Battery.h"/>
    <depend name="include/haxe/io/Encoding.h"/>
    <depend name="include/haxe/io/Output.h"/>
    <depend name="include/kui/Capability.h"/>
@@ -537,7 +536,7 @@
 </files>
 <set name="HAXE_OUTPUT" value="BatteryApp" />
 <include name="${HXCPP}/build-tool/BuildCommon.xml"/>
-<files id="kui_battery_platform_macos_Battery"><file name="/Users/benjamindasnois/new-projects/kui/examples/battery/native/battery_mac.mm" /></files><target id="haxe"><files id="kui_battery_platform_macos_Battery" /><lib name="-framework" /><lib name="IOKit" /><lib name="-framework" /><lib name="CoreFoundation" /></target>
+<files id="kui_battery_platform_ios_Battery"><file name="/Users/benjamindasnois/new-projects/kui/examples/battery/native/battery_ios.mm" /></files><target id="haxe"><files id="kui_battery_platform_ios_Battery" /><lib name="-framework" /><lib name="UIKit" /><lib name="-framework" /><lib name="Foundation" /></target>
 <include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
 <include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
 <error value="Hxcpp is out of date - please update" unlessApi="430" />

@@ -63,21 +63,25 @@ device first.
 The four non-hxcpp link channels each carry a real capability, and three of the
 four have been run:
 
-| Channel | Built | Run |
+| Channel | Built | What it answered |
 |---|---|---|
-| hxcpp | macOS, Windows | yes — `pui`, `cui` |
-| Xcode | macOS | yes — `sui`, reading IOKit: `level 100` against `pmset` |
-| Xcode | iOS | yes — `sui` on a simulator, which reports no battery, so `level -1` |
-| Gradle | Android | yes — on an emulator, which denies sysfs, so `level -1` |
-| MSBuild | Windows | yes — linking `PowrProf.lib`; that machine has no battery, so `level -1` |
-| qmake | SailfishOS, aarch64 | **not yet on a device** |
+| hxcpp | macOS | `pui`, `cui` — `level 100, plugged in, not charging` |
+| Xcode | macOS | `sui` — the same, through IOKit |
+| Xcode | iOS | `sui` on a simulator — `level -1, power source unknown` |
+| Gradle | Android | an emulator, denied sysfs — `level -1, power source unknown` |
+| MSBuild | Windows | a desktop, `PowrProf.lib` linked — `level -1, on mains power` |
+| qmake | SailfishOS, aarch64 | compiled and linked; **not yet run on a device** |
 
-Three of those answer `-1`, and that is the capability's contract for "no
-reading here" rather than a failure — each confirmed independently: `wmic` says
-the Windows machine has no battery, `adb shell` is refused the same sysfs node,
-and the iOS simulator does not simulate one. What each run proves is that the
-native code was linked, found and called; only macOS was in a position to return
-a number, and it returned the right one.
+Only macOS was in a position to return a charge figure, and it returned the
+right one — `pmset` agrees on all three of level, mains and not-charging. Each
+`-1` is the contract's "no reading here", confirmed independently: `wmic`
+reports no battery on the Windows machine, `adb shell` is refused the same sysfs
+node the app is, and an iOS simulator is not given a battery. What those runs
+prove is that the native code was linked, found and called.
+
+Note what the Windows and iOS rows do **not** say. A desktop knows it is on
+mains; a simulator knows nothing, and says so. Collapsing the two would have
+been easy and would have been a guess.
 
 The qmake channel is compiled and linked by the Sailfish SDK container, which is
 the step that proves the `.pri` reaches qmake. Running it on the phone is

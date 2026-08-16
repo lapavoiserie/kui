@@ -27,6 +27,18 @@ object BatteryNative {
     @Keep
     fun level(): Int = read("capacity")?.toIntOrNull() ?: -1
 
+    /**
+     * Plugged in, whether or not the battery is still filling.
+     *
+     * "Discharging" is the only status that means running off the battery;
+     * Charging, Full and "Not charging" (a battery held at a charge limit) all
+     * mean the mains is connected. A device whose node cannot be read answers
+     * false rather than guessing, which is what an emulator gets.
+     */
+    @JvmStatic
+    @Keep
+    fun powered(): Boolean = read("status")?.let { it != "Discharging" } ?: false
+
     @JvmStatic
     @Keep
     fun charging(): Boolean = read("status")?.equals("Charging", ignoreCase = true) ?: false

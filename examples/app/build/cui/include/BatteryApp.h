@@ -10,9 +10,11 @@
 #include <cui/mui/App.h>
 #endif
 HX_DECLARE_CLASS0(BatteryApp)
+HX_DECLARE_CLASS1(battery,Battery)
 HX_DECLARE_CLASS1(cui,App)
 HX_DECLARE_CLASS1(cui,View)
 HX_DECLARE_CLASS2(cui,mui,App)
+HX_DECLARE_CLASS1(kui,Capability)
 
 
 
@@ -47,6 +49,9 @@ class HXCPP_CLASS_ATTRIBUTES BatteryApp_obj : public  ::cui::mui::App_obj
 		::String __ToString() const { return HX_("BatteryApp",f4,4e,27,99); }
 
 		static void __boot();
+		static ::String supply(::Dynamic battery,int level);
+		static ::Dynamic supply_dyn();
+
 		static bool announced;
 		static void announce();
 		static ::Dynamic announce_dyn();

@@ -13,6 +13,7 @@ namespace battery{
 
 static ::String Battery_obj_sMemberFields[] = {
 	HX_("level",84,15,63,72),
+	HX_("powered",a4,6f,c9,5a),
 	HX_("charging",b1,88,eb,b3),
 	::String(null()) };
 

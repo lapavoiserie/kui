@@ -50,6 +50,9 @@ class HXCPP_CLASS_ATTRIBUTES Battery_obj : public ::hx::Object
 		int level();
 		::Dynamic level_dyn();
 
+		bool powered();
+		::Dynamic powered_dyn();
+
 		bool charging();
 		::Dynamic charging_dyn();
 

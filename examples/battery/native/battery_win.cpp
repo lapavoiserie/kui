@@ -29,6 +29,16 @@ extern "C" int kui_battery_level() {
 	return (int)((state.RemainingCapacity * 100ULL) / state.MaxCapacity);
 }
 
+// AcOnLine is the field that answers "is the charger plugged in". Charging is a
+// different field, and false on a full battery -- reading it as "plugged in"
+// would report a desktop, which is always on AC, as running on battery.
+extern "C" bool kui_battery_powered() {
+	SYSTEM_BATTERY_STATE state = {};
+	if (CallNtPowerInformation(SystemBatteryState, nullptr, 0, &state, sizeof(state)) != 0)
+		return false;
+	return state.AcOnLine != FALSE;
+}
+
 extern "C" bool kui_battery_charging() {
 	SYSTEM_BATTERY_STATE state = {};
 	if (CallNtPowerInformation(SystemBatteryState, nullptr, 0, &state, sizeof(state)) != 0)

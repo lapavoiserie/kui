@@ -671,7 +671,6 @@
   </file>
   <file name="src/BatteryApp.cpp" >
    <depend name="include/BatteryApp.h"/>
-   <depend name="include/Std.h"/>
    <depend name="include/Sys.h"/>
    <depend name="include/battery/Battery.h"/>
    <depend name="include/battery/platform/macos/Battery.h"/>

@@ -49,6 +49,19 @@ extern "C" int kui_battery_level() {
 	return level;
 }
 
+// "Discharging" is the only status that means running off the battery. Charging,
+// Full and "Not charging" -- the last being a battery held at a charge limit --
+// all mean the mains is connected.
+//
+// A machine with no battery node at all is a desktop, and a desktop is on the
+// mains: true, where `kui_battery_level` answers -1. The two are consistent, and
+// deliberately so.
+extern "C" bool kui_battery_powered() {
+	char value[32];
+	if (!read_attribute("status", value, sizeof(value))) return true;
+	return strncmp(value, "Discharging", 11) != 0;
+}
+
 extern "C" bool kui_battery_charging() {
 	char value[32];
 	if (!read_attribute("status", value, sizeof(value))) return false;

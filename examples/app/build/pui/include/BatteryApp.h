@@ -10,6 +10,8 @@
 #include <pui/mui/App.h>
 #endif
 HX_DECLARE_CLASS0(BatteryApp)
+HX_DECLARE_CLASS1(battery,Battery)
+HX_DECLARE_CLASS1(kui,Capability)
 HX_DECLARE_CLASS1(pui,App)
 HX_DECLARE_CLASS1(pui,View)
 HX_DECLARE_CLASS2(pui,mui,App)
@@ -41,9 +43,18 @@ class HXCPP_CLASS_ATTRIBUTES BatteryApp_obj : public  ::pui::mui::App_obj
 		HX_DO_RTTI_ALL;
 		::hx::Val __Field(const ::String &inString, ::hx::PropertyAccess inCallProp);
 		static bool __GetStatic(const ::String &inString, Dynamic &outValue, ::hx::PropertyAccess inCallProp);
+		static bool __SetStatic(const ::String &inString, Dynamic &ioValue, ::hx::PropertyAccess inCallProp);
 		static void __register();
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("BatteryApp",f4,4e,27,99); }
+
+		static void __boot();
+		static ::String supply(::Dynamic battery);
+		static ::Dynamic supply_dyn();
+
+		static bool announced;
+		static void announce();
+		static ::Dynamic announce_dyn();
 
 		static void main();
 		static ::Dynamic main_dyn();

@@ -30,6 +30,16 @@ class HXCPP_CLASS_ATTRIBUTES Battery_obj {
 			#endif
 			return (_hx_.mPtr->*( ::hx::interface_cast< ::battery::Battery_obj *>(_hx_.mPtr->_hx_getInterface(0x1509eb80)))->_hx_level)();
 		}
+		bool (::hx::Object :: *_hx_powered)(); 
+		static inline bool powered( ::Dynamic _hx_) {
+			#ifdef HXCPP_CHECK_POINTER
+			if (::hx::IsNull(_hx_)) ::hx::NullReference("Object", false);
+			#ifdef HXCPP_GC_CHECK_POINTER
+				GCCheckPointer(_hx_.mPtr);
+			#endif
+			#endif
+			return (_hx_.mPtr->*( ::hx::interface_cast< ::battery::Battery_obj *>(_hx_.mPtr->_hx_getInterface(0x1509eb80)))->_hx_powered)();
+		}
 		bool (::hx::Object :: *_hx_charging)(); 
 		static inline bool charging( ::Dynamic _hx_) {
 			#ifdef HXCPP_CHECK_POINTER

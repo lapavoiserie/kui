@@ -31,6 +31,9 @@ class Battery implements battery.Battery {
 	public function level():Int
 		return BatteryNative.level();
 
+	public function powered():Bool
+		return BatteryNative.powered();
+
 	public function charging():Bool
 		return BatteryNative.charging();
 }
@@ -48,5 +51,6 @@ class Battery implements battery.Battery {
 @:native("kui.example.BatteryNative")
 extern class BatteryNative {
 	static function level():Int;
+	static function powered():Bool;
 	static function charging():Bool;
 }

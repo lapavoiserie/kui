@@ -39,6 +39,29 @@ int kui_battery_level() {
 	return percent;
 }
 
+/**
+	Whether the machine is drawing from the mains.
+
+	A different question from `kui_battery_charging`, and asked of a different
+	API on purpose. `kIOPSIsChargingKey` is false on a laptop plugged in at
+	100 % — the battery is charged, not charging — so reading it as "plugged in"
+	tells the user they are on battery while the charger sits in the wall.
+
+	`IOPSGetProvidingPowerSourceType` answers the question actually being asked,
+	and answers it correctly on a desktop Mac too: no battery, always AC.
+**/
+bool kui_battery_powered() {
+	CFTypeRef blob = IOPSCopyPowerSourcesInfo();
+	if (!blob) return false;
+	// Not copied: IOPSGetProvidingPowerSourceType returns a string owned by the
+	// blob, so it must not be released and must not outlive it.
+	CFStringRef providing = IOPSGetProvidingPowerSourceType(blob);
+	bool powered = providing != NULL
+		&& CFStringCompare(providing, CFSTR(kIOPSACPowerValue), 0) == kCFCompareEqualTo;
+	CFRelease(blob);
+	return powered;
+}
+
 bool kui_battery_charging() {
 	bool charging = false;
 	CFTypeRef blob = IOPSCopyPowerSourcesInfo();

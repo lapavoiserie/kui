@@ -4,9 +4,6 @@
 #ifndef INCLUDED_BatteryApp
 #include <BatteryApp.h>
 #endif
-#ifndef INCLUDED_Std
-#include <Std.h>
-#endif
 #ifndef INCLUDED_Sys
 #include <Sys.h>
 #endif
@@ -58,9 +55,10 @@
 
 HX_DEFINE_STACK_FRAME(_hx_pos_2638c642c45cccdf_15_new,"BatteryApp","new",0x966779e6,"BatteryApp.new","BatteryApp.hx",15,0x8948c44a)
 HX_LOCAL_STACK_FRAME(_hx_pos_2638c642c45cccdf_20_body,"BatteryApp","body",0xfc3c265c,"BatteryApp.body","BatteryApp.hx",20,0x8948c44a)
-HX_LOCAL_STACK_FRAME(_hx_pos_2638c642c45cccdf_48_announce,"BatteryApp","announce",0x25962f63,"BatteryApp.announce","BatteryApp.hx",48,0x8948c44a)
-HX_LOCAL_STACK_FRAME(_hx_pos_2638c642c45cccdf_56_main,"BatteryApp","main",0x0376e3f3,"BatteryApp.main","BatteryApp.hx",56,0x8948c44a)
-HX_LOCAL_STACK_FRAME(_hx_pos_2638c642c45cccdf_46_boot,"BatteryApp","boot",0xfc3c2fec,"BatteryApp.boot","BatteryApp.hx",46,0x8948c44a)
+HX_LOCAL_STACK_FRAME(_hx_pos_2638c642c45cccdf_51_supply,"BatteryApp","supply",0xe8b82c69,"BatteryApp.supply","BatteryApp.hx",51,0x8948c44a)
+HX_LOCAL_STACK_FRAME(_hx_pos_2638c642c45cccdf_73_announce,"BatteryApp","announce",0x25962f63,"BatteryApp.announce","BatteryApp.hx",73,0x8948c44a)
+HX_LOCAL_STACK_FRAME(_hx_pos_2638c642c45cccdf_81_main,"BatteryApp","main",0x0376e3f3,"BatteryApp.main","BatteryApp.hx",81,0x8948c44a)
+HX_LOCAL_STACK_FRAME(_hx_pos_2638c642c45cccdf_71_boot,"BatteryApp","boot",0xfc3c2fec,"BatteryApp.boot","BatteryApp.hx",71,0x8948c44a)
 
 void BatteryApp_obj::__construct(){
             	HX_STACKFRAME(&_hx_pos_2638c642c45cccdf_15_new)
@@ -105,38 +103,56 @@ HXLINE(  27)			_hx_tmp1 = HX_("no battery on this machine",34,10,e3,05);
 HXLINE(  27)			_hx_tmp1 = ((HX_("charge: ",1a,52,e8,b3) + level) + HX_(" %",05,1c,00,00));
             		}
 HXDLIN(  27)		 ::pui::mui::Text _hx_tmp2 =  ::pui::mui::Text_obj::__alloc( HX_CTX ,_hx_tmp1,null());
-HXLINE(  28)		::String _hx_tmp3;
-HXDLIN(  28)		if (::battery::Battery_obj::charging(battery)) {
-HXLINE(  28)			_hx_tmp3 = HX_("charging",b1,88,eb,b3);
-            		}
-            		else {
-HXLINE(  28)			_hx_tmp3 = HX_("on battery",cc,e3,9d,f5);
-            		}
-HXLINE(  25)		return  ::pui::mui::VStack_obj::__alloc( HX_CTX ,::Array_obj< ::Dynamic>::__new(3)->init(0,_hx_tmp)->init(1,_hx_tmp2)->init(2, ::pui::mui::Text_obj::__alloc( HX_CTX ,_hx_tmp3,null())),10);
+HXLINE(  25)		return  ::pui::mui::VStack_obj::__alloc( HX_CTX ,::Array_obj< ::Dynamic>::__new(3)->init(0,_hx_tmp)->init(1,_hx_tmp2)->init(2, ::pui::mui::Text_obj::__alloc( HX_CTX ,::BatteryApp_obj::supply(battery,level),null())),10);
             	}
 
+
+::String BatteryApp_obj::supply(::Dynamic battery,int level){
+            	HX_STACKFRAME(&_hx_pos_2638c642c45cccdf_51_supply)
+HXLINE(  52)		if (!(::battery::Battery_obj::powered(battery))) {
+HXLINE(  52)			if ((level < 0)) {
+HXLINE(  52)				return HX_("power source unknown",00,e5,ef,45);
+            			}
+            			else {
+HXLINE(  52)				return HX_("on battery",cc,e3,9d,f5);
+            			}
+            		}
+HXLINE(  53)		if ((level < 0)) {
+HXLINE(  53)			return HX_("on mains power",fe,28,91,ad);
+            		}
+HXLINE(  54)		if (::battery::Battery_obj::charging(battery)) {
+HXLINE(  54)			return HX_("charging",b1,88,eb,b3);
+            		}
+            		else {
+HXLINE(  54)			return HX_("plugged in, not charging",9f,df,39,9b);
+            		}
+HXDLIN(  54)		return null();
+            	}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC2(BatteryApp_obj,supply,return )
 
 bool BatteryApp_obj::announced;
 
 void BatteryApp_obj::announce(){
-            	HX_STACKFRAME(&_hx_pos_2638c642c45cccdf_48_announce)
-HXLINE(  49)		if (::BatteryApp_obj::announced) {
-HXLINE(  49)			return;
+            	HX_STACKFRAME(&_hx_pos_2638c642c45cccdf_73_announce)
+HXLINE(  74)		if (::BatteryApp_obj::announced) {
+HXLINE(  74)			return;
             		}
-HXLINE(  50)		::BatteryApp_obj::announced = true;
-HXLINE(  51)		::Dynamic battery = ::kui::Kui_obj::instance(::hx::ClassOf< ::battery::platform::sailfish::Battery >());
-HXLINE(  52)		 ::haxe::io::Output _hx_tmp = ::Sys_obj::_hx_stderr();
-HXDLIN(  52)		::String _hx_tmp1 = ((HX_("kui: level ",c1,1f,70,10) + ::battery::Battery_obj::level(battery)) + HX_(", charging ",5b,7d,b5,e9));
-HXDLIN(  52)		_hx_tmp->writeString(((_hx_tmp1 + ::Std_obj::string(::battery::Battery_obj::charging(battery))) + HX_("\n",0a,00,00,00)),null());
+HXLINE(  75)		::BatteryApp_obj::announced = true;
+HXLINE(  76)		::Dynamic battery = ::kui::Kui_obj::instance(::hx::ClassOf< ::battery::platform::sailfish::Battery >());
+HXLINE(  77)		int level = ::battery::Battery_obj::level(battery);
+HXLINE(  78)		 ::haxe::io::Output _hx_tmp = ::Sys_obj::_hx_stderr();
+HXDLIN(  78)		_hx_tmp->writeString(((((HX_("kui: level ",c1,1f,70,10) + level) + HX_(", ",74,26,00,00)) + ::BatteryApp_obj::supply(battery,level)) + HX_("\n",0a,00,00,00)),null());
             	}
 
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC0(BatteryApp_obj,announce,(void))
 
 void BatteryApp_obj::main(){
-            	HX_GC_STACKFRAME(&_hx_pos_2638c642c45cccdf_56_main)
-HXLINE(  57)		::BatteryApp_obj::announce();
-HXLINE(  60)		 ::BatteryApp_obj::__alloc( HX_CTX )->run();
+            	HX_GC_STACKFRAME(&_hx_pos_2638c642c45cccdf_81_main)
+HXLINE(  82)		::BatteryApp_obj::announce();
+HXLINE(  85)		 ::BatteryApp_obj::__alloc( HX_CTX )->run();
             	}
 
 
@@ -174,6 +190,9 @@ bool BatteryApp_obj::__GetStatic(const ::String &inName, Dynamic &outValue, ::hx
 	switch(inName.length) {
 	case 4:
 		if (HX_FIELD_EQ(inName,"main") ) { outValue = main_dyn(); return true; }
+		break;
+	case 6:
+		if (HX_FIELD_EQ(inName,"supply") ) { outValue = supply_dyn(); return true; }
 		break;
 	case 8:
 		if (HX_FIELD_EQ(inName,"announce") ) { outValue = announce_dyn(); return true; }
@@ -219,6 +238,7 @@ static void BatteryApp_obj_sVisitStatics(HX_VISIT_PARAMS) {
 ::hx::Class BatteryApp_obj::__mClass;
 
 static ::String BatteryApp_obj_sStaticFields[] = {
+	HX_("supply",2f,9e,49,a3),
 	HX_("announced",9b,b5,de,67),
 	HX_("announce",a9,1e,bc,bc),
 	HX_("main",39,38,56,48),
@@ -255,8 +275,8 @@ void BatteryApp_obj::__register()
 void BatteryApp_obj::__boot()
 {
 {
-            	HX_STACKFRAME(&_hx_pos_2638c642c45cccdf_46_boot)
-HXDLIN(  46)		announced = false;
+            	HX_STACKFRAME(&_hx_pos_2638c642c45cccdf_71_boot)
+HXDLIN(  71)		announced = false;
             	}
 }
 

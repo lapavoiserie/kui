@@ -73,6 +73,9 @@
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
 #endif
+#ifndef INCLUDED_BatteryApp
+#include <BatteryApp.h>
+#endif
 #ifndef INCLUDED_sys_io_FileOutput
 #include <sys/io/FileOutput.h>
 #endif
@@ -334,9 +337,6 @@
 #ifndef INCLUDED_Reflect
 #include <Reflect.h>
 #endif
-#ifndef INCLUDED_BatteryApp
-#include <BatteryApp.h>
-#endif
 #ifndef INCLUDED_pui_mui_App
 #include <pui/mui/App.h>
 #endif
@@ -374,6 +374,7 @@ __files__boot();
 ::pui::Invalidation_obj::__register();
 ::kui::Kui_obj::__register();
 ::haxe::Log_obj::__register();
+::BatteryApp_obj::__register();
 ::sys::io::FileOutput_obj::__register();
 ::rui::Signal_obj::__register();
 ::rui::Observable_obj::__register();
@@ -461,7 +462,6 @@ __files__boot();
 ::StringTools_obj::__register();
 ::Std_obj::__register();
 ::Reflect_obj::__register();
-::BatteryApp_obj::__register();
 ::pui::mui::App_obj::__register();
 ::pui::App_obj::__register();
 ::pui::ui::TextScale_obj::__boot();
@@ -478,6 +478,7 @@ __files__boot();
 ::haxe::io::Error_obj::__boot();
 ::haxe::io::Encoding_obj::__boot();
 ::haxe::Log_obj::__boot();
+::BatteryApp_obj::__boot();
 ::kui::Kui_obj::__boot();
 ::pui::Invalidation_obj::__boot();
 ::pui::anim::Ticker_obj::__boot();

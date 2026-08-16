@@ -30,12 +30,16 @@ package battery.platform.windows;
 	},
 })
 @:cppFileCode('extern "C" int kui_battery_level();
+extern "C" bool kui_battery_powered();
 extern "C" bool kui_battery_charging();')
 class Battery implements battery.Battery {
 	public function new() {}
 
 	public function level():Int
 		return untyped __cpp__("kui_battery_level()");
+
+	public function powered():Bool
+		return untyped __cpp__("kui_battery_powered()");
 
 	public function charging():Bool
 		return untyped __cpp__("kui_battery_charging()");

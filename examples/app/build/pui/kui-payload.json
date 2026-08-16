@@ -17,6 +17,12 @@
           "files": [
             "/Users/benjamindasnois/new-projects/kui/examples/battery/native/battery_mac.mm"
           ]
+        },
+        "xcode": {
+          "frameworks": [
+            "IOKit",
+            "CoreFoundation"
+          ]
         }
       },
       "platform": "macos",

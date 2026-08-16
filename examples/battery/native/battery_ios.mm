@@ -38,6 +38,15 @@ extern "C" int kui_battery_level() {
 	return (int)(level * 100.0f + 0.5f);
 }
 
+// Plugged in, whether or not the battery is still filling. "Full" is the state
+// that makes the distinction matter: a device on the charger at 100 % reports
+// Full, not Charging, and reading Charging as "plugged in" would tell its owner
+// they are on battery with the cable attached.
+extern "C" bool kui_battery_powered() {
+	UIDeviceBatteryState state = monitored_device().batteryState;
+	return state == UIDeviceBatteryStateCharging || state == UIDeviceBatteryStateFull;
+}
+
 extern "C" bool kui_battery_charging() {
 	UIDeviceBatteryState state = monitored_device().batteryState;
 	// "Full" is not "charging": a device on the charger at 100% has stopped.

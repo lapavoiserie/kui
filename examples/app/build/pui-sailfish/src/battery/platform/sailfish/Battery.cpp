@@ -11,17 +11,19 @@
 #include <kui/Capability.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_346374bb81b29a7c_29_new,"battery.platform.sailfish.Battery","new",0x1ddcff74,"battery.platform.sailfish.Battery.new","battery/platform/sailfish/Battery.hx",29,0xeea709dd)
-HX_LOCAL_STACK_FRAME(_hx_pos_346374bb81b29a7c_32_level,"battery.platform.sailfish.Battery","level",0xe7e53198,"battery.platform.sailfish.Battery.level","battery/platform/sailfish/Battery.hx",32,0xeea709dd)
-HX_LOCAL_STACK_FRAME(_hx_pos_346374bb81b29a7c_35_charging,"battery.platform.sailfish.Battery","charging",0xaadb311d,"battery.platform.sailfish.Battery.charging","battery/platform/sailfish/Battery.hx",35,0xeea709dd)
+HX_DEFINE_STACK_FRAME(_hx_pos_346374bb81b29a7c_30_new,"battery.platform.sailfish.Battery","new",0x1ddcff74,"battery.platform.sailfish.Battery.new","battery/platform/sailfish/Battery.hx",30,0xeea709dd)
+HX_LOCAL_STACK_FRAME(_hx_pos_346374bb81b29a7c_33_level,"battery.platform.sailfish.Battery","level",0xe7e53198,"battery.platform.sailfish.Battery.level","battery/platform/sailfish/Battery.hx",33,0xeea709dd)
+HX_LOCAL_STACK_FRAME(_hx_pos_346374bb81b29a7c_36_powered,"battery.platform.sailfish.Battery","powered",0xca19b8b8,"battery.platform.sailfish.Battery.powered","battery/platform/sailfish/Battery.hx",36,0xeea709dd)
+HX_LOCAL_STACK_FRAME(_hx_pos_346374bb81b29a7c_39_charging,"battery.platform.sailfish.Battery","charging",0xaadb311d,"battery.platform.sailfish.Battery.charging","battery/platform/sailfish/Battery.hx",39,0xeea709dd)
 extern "C" int kui_battery_level();
+extern "C" bool kui_battery_powered();
 extern "C" bool kui_battery_charging();
 namespace battery{
 namespace platform{
 namespace sailfish{
 
 void Battery_obj::__construct(){
-            	HX_STACKFRAME(&_hx_pos_346374bb81b29a7c_29_new)
+            	HX_STACKFRAME(&_hx_pos_346374bb81b29a7c_30_new)
             	}
 
 Dynamic Battery_obj::__CreateEmpty() { return new Battery_obj; }
@@ -44,6 +46,7 @@ static ::kui::Capability_obj _hx_battery_platform_sailfish_Battery__hx_kui_Capab
 
 static ::battery::Battery_obj _hx_battery_platform_sailfish_Battery__hx_battery_Battery= {
 	( int (::hx::Object::*)())&::battery::platform::sailfish::Battery_obj::level,
+	( bool (::hx::Object::*)())&::battery::platform::sailfish::Battery_obj::powered,
 	( bool (::hx::Object::*)())&::battery::platform::sailfish::Battery_obj::charging,
 };
 
@@ -60,16 +63,24 @@ void *Battery_obj::_hx_getInterface(int inHash) {
 }
 
 int Battery_obj::level(){
-            	HX_STACKFRAME(&_hx_pos_346374bb81b29a7c_32_level)
-HXDLIN(  32)		return kui_battery_level();
+            	HX_STACKFRAME(&_hx_pos_346374bb81b29a7c_33_level)
+HXDLIN(  33)		return kui_battery_level();
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC0(Battery_obj,level,return )
 
+bool Battery_obj::powered(){
+            	HX_STACKFRAME(&_hx_pos_346374bb81b29a7c_36_powered)
+HXDLIN(  36)		return kui_battery_powered();
+            	}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(Battery_obj,powered,return )
+
 bool Battery_obj::charging(){
-            	HX_STACKFRAME(&_hx_pos_346374bb81b29a7c_35_charging)
-HXDLIN(  35)		return kui_battery_charging();
+            	HX_STACKFRAME(&_hx_pos_346374bb81b29a7c_39_charging)
+HXDLIN(  39)		return kui_battery_charging();
             	}
 
 
@@ -99,6 +110,9 @@ Battery_obj::Battery_obj()
 	case 5:
 		if (HX_FIELD_EQ(inName,"level") ) { return ::hx::Val( level_dyn() ); }
 		break;
+	case 7:
+		if (HX_FIELD_EQ(inName,"powered") ) { return ::hx::Val( powered_dyn() ); }
+		break;
 	case 8:
 		if (HX_FIELD_EQ(inName,"charging") ) { return ::hx::Val( charging_dyn() ); }
 	}
@@ -112,6 +126,7 @@ static ::hx::StaticInfo *Battery_obj_sStaticStorageInfo = 0;
 
 static ::String Battery_obj_sMemberFields[] = {
 	HX_("level",84,15,63,72),
+	HX_("powered",a4,6f,c9,5a),
 	HX_("charging",b1,88,eb,b3),
 	::String(null()) };
 
