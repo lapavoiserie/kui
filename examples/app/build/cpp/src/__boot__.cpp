@@ -256,8 +256,8 @@
 #ifndef INCLUDED_haxe_IMap
 #include <haxe/IMap.h>
 #endif
-#ifndef INCLUDED_battery_platform_macos_Battery
-#include <battery/platform/macos/Battery.h>
+#ifndef INCLUDED_battery_platform_ios_Battery
+#include <battery/platform/ios/Battery.h>
 #endif
 #ifndef INCLUDED_battery_Battery
 #include <battery/Battery.h>
@@ -378,7 +378,7 @@ __files__boot();
 ::haxe::NativeStackTrace_obj::__register();
 ::haxe::Exception_obj::__register();
 ::haxe::IMap_obj::__register();
-::battery::platform::macos::Battery_obj::__register();
+::battery::platform::ios::Battery_obj::__register();
 ::battery::Battery_obj::__register();
 ::kui::Capability_obj::__register();
 ::Type_obj::__register();

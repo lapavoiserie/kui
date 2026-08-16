@@ -66,10 +66,18 @@ four have been run:
 | Channel | Built | Run |
 |---|---|---|
 | hxcpp | macOS, Windows | yes — `pui`, `cui` |
-| Xcode | macOS | yes — `sui`, reading IOKit |
-| Gradle | Android | yes — on an emulator |
-| MSBuild | Windows | yes — linking `PowrProf.lib` |
+| Xcode | macOS | yes — `sui`, reading IOKit: `level 100` against `pmset` |
+| Xcode | iOS | yes — `sui` on a simulator, which reports no battery, so `level -1` |
+| Gradle | Android | yes — on an emulator, which denies sysfs, so `level -1` |
+| MSBuild | Windows | yes — linking `PowrProf.lib`; that machine has no battery, so `level -1` |
 | qmake | SailfishOS, aarch64 | **not yet on a device** |
+
+Three of those answer `-1`, and that is the capability's contract for "no
+reading here" rather than a failure — each confirmed independently: `wmic` says
+the Windows machine has no battery, `adb shell` is refused the same sysfs node,
+and the iOS simulator does not simulate one. What each run proves is that the
+native code was linked, found and called; only macOS was in a position to return
+a number, and it returned the right one.
 
 The qmake channel is compiled and linked by the Sailfish SDK container, which is
 the step that proves the `.pri` reaches qmake. Running it on the phone is
