@@ -82,6 +82,9 @@
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
 #endif
+#ifndef INCLUDED_BatteryApp
+#include <BatteryApp.h>
+#endif
 #ifndef INCLUDED_sys_io_FileOutput
 #include <sys/io/FileOutput.h>
 #endif
@@ -277,9 +280,6 @@
 #ifndef INCLUDED_Reflect
 #include <Reflect.h>
 #endif
-#ifndef INCLUDED_BatteryApp
-#include <BatteryApp.h>
-#endif
 #ifndef INCLUDED_sui_mui_App
 #include <sui/mui/App.h>
 #endif
@@ -320,6 +320,7 @@ __files__boot();
 ::rui::Scheduler_obj::__register();
 ::kui::Kui_obj::__register();
 ::haxe::Log_obj::__register();
+::BatteryApp_obj::__register();
 ::sys::io::FileOutput_obj::__register();
 ::sui::ui::Spacer_obj::__register();
 ::sui::ui::List_obj::__register();
@@ -385,7 +386,6 @@ __files__boot();
 ::StringBuf_obj::__register();
 ::Std_obj::__register();
 ::Reflect_obj::__register();
-::BatteryApp_obj::__register();
 ::sui::mui::App_obj::__register();
 ::sui::App_obj::__register();
 ::sui::ui::HorizontalAlignment_obj::__boot();
@@ -408,6 +408,7 @@ __files__boot();
 ::haxe::io::Error_obj::__boot();
 ::haxe::io::Encoding_obj::__boot();
 ::haxe::Log_obj::__boot();
+::BatteryApp_obj::__boot();
 ::kui::Kui_obj::__boot();
 ::rui::Scheduler_obj::__boot();
 ::rui::Effect_obj::__boot();

@@ -41,9 +41,15 @@ class HXCPP_CLASS_ATTRIBUTES BatteryApp_obj : public  ::sui::mui::App_obj
 		HX_DO_RTTI_ALL;
 		::hx::Val __Field(const ::String &inString, ::hx::PropertyAccess inCallProp);
 		static bool __GetStatic(const ::String &inString, Dynamic &outValue, ::hx::PropertyAccess inCallProp);
+		static bool __SetStatic(const ::String &inString, Dynamic &ioValue, ::hx::PropertyAccess inCallProp);
 		static void __register();
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("BatteryApp",f4,4e,27,99); }
+
+		static void __boot();
+		static bool announced;
+		static void announce();
+		static ::Dynamic announce_dyn();
 
 		static void main();
 		static ::Dynamic main_dyn();

@@ -507,6 +507,7 @@
    <depend name="include/rui/Scheduler.h"/>
    <depend name="include/kui/Kui.h"/>
    <depend name="include/haxe/Log.h"/>
+   <depend name="include/BatteryApp.h"/>
   </file>
   <file name="src/__files__.cpp" if='HXCPP_DEBUGGER'>
   </file>
