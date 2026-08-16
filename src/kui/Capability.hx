@@ -60,4 +60,5 @@ package kui;
 	in place of something it cannot host. Capabilities are keyed by platform and
 	resolved by name so that day can reuse both, but it is a separate design.
 **/
+@:autoBuild(kui.macros.CapabilityMacro.build())
 interface Capability {}
