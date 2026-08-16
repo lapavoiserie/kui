@@ -101,6 +101,35 @@ haxelib lives outside the tarball whatever its path says. Copied to
 One directory per capability, so two may each ship a `native/util.cpp` without
 one overwriting the other.
 
+## The package name the compiler had already taken
+
+`kui` keys capabilities by operating system, and one of those ids is `linux`.
+GCC and clang define `linux` — and `unix`, and `i386` — as `1` outside strict
+ISO mode, and Haxe turns a package into a C++ namespace verbatim. So an
+implementation at `battery.platform.linux.Battery` generates
+
+```cpp
+namespace battery{ namespace platform{ namespace linux{
+```
+
+which the preprocessor rewrites to `namespace 1{` before the compiler sees it.
+The error is `expected identifier before numeric constant`, at an ordinary-looking
+line, in a file nobody wrote.
+
+This is **`kui`'s** problem rather than the author's: `kui` chose the id, and the
+`p.platform.<id>.Name` convention follows from it. So `kui` emits `-Ulinux`
+itself, for the **whole program** — the namespace is named by every generated
+source that reaches the capability, not just by the capability's own file — and
+it emits it twice, because hxcpp reads the metadata and qmake reads the `.pri`
+and neither reads the other.
+
+It is emitted for an implementation with **no native payload at all**, which is
+the case that makes this a rule rather than a footnote: a pure-Haxe Linux
+capability breaks the build just as thoroughly.
+
+Undefining is what strict ISO mode does anyway; portable code tests `__linux__`,
+which is untouched.
+
 ## A build with no capabilities
 
 Writes no sidecar, no `.pri`, and changes nothing. Every consumer adds its hook

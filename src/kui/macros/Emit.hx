@@ -36,7 +36,27 @@ import haxe.macro.Expr;
 class Emit {
 	#if macro
 	static var payloads:Array<{type:String, platform:String, payload:Dynamic}> = [];
+	static var undefs:Array<String> = [];
 	static var armed = false;
+
+	/**
+		Names the C preprocessor has already taken, found in a capability's
+		package by `CapabilityMacro`.
+
+		Recorded here as well as stamped as `@:buildXml`, because the two
+		compilers that matter read different things: hxcpp reads the metadata,
+		qmake reads the `.pri`. The same `-U` has to reach both, and a build with
+		no native payload at all still needs it — the collision is in the
+		generated namespace, not in anything the author wrote.
+	**/
+	public static function undefine(names:Array<String>):Void {
+		for (name in names) if (undefs.indexOf(name) < 0) undefs.push(name);
+		arm();
+	}
+
+	/** Every name to undefine, for whoever renders a build fragment. **/
+	public static function undefined():Array<String>
+		return undefs.copy();
 
 	/** Called by `CapabilityMacro` for each implementation it builds. **/
 	public static function record(type:String, payload:Dynamic):Void {
@@ -45,10 +65,13 @@ class Emit {
 			platform: Host.platform() == null ? "" : Host.platform(),
 			payload: payload,
 		});
-		if (!armed) {
-			armed = true;
-			Context.onAfterGenerate(write);
-		}
+		arm();
+	}
+
+	static function arm():Void {
+		if (armed) return;
+		armed = true;
+		Context.onAfterGenerate(write);
 	}
 
 	/**
@@ -68,7 +91,7 @@ class Emit {
 		return kui.build.Sidecar.of(cast payloads);
 
 	static function write():Void {
-		if (payloads.length == 0) return;
+		if (payloads.length == 0 && undefs.length == 0) return;
 
 		var out = haxe.macro.Compiler.getOutput();
 		// `-cpp out` names a directory; a single-file target names the file.
@@ -91,7 +114,7 @@ class Emit {
 			// qmake gets a rendering of its own — and a copy of the sources,
 			// because it runs inside a container where the host's paths do not
 			// exist. See `kui.build.Qmake`.
-			kui.build.Qmake.write(current(), directory);
+			kui.build.Qmake.write(current(), directory, undefs);
 		} catch (e:Dynamic) {
 			// A build that cannot write its sidecar must say so rather than link
 			// half a capability: the native code would be missing and the Haxe

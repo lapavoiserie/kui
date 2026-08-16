@@ -50,12 +50,48 @@ class CapabilityMacro {
 		if (!type.meta.has(":keep")) type.meta.add(":keep", [], type.pos);
 
 		requireConstructor(fields, type);
+		guardReservedNames(type);
 		attachPayload(type);
 		#end
 		return fields;
 	}
 
 	#if macro
+	/**
+		The package names a C compiler has already taken.
+
+		GCC and clang define `linux`, `unix` and `i386` as `1` outside strict ISO
+		mode, and Haxe turns a package into a C++ namespace verbatim. So an
+		implementation at `battery.platform.linux.Battery` generates
+		`namespace battery{ namespace platform{ namespace linux{` — which the
+		preprocessor rewrites to `namespace 1{` before the compiler ever sees it.
+		The error is "expected identifier before numeric constant", at a line that
+		looks perfectly ordinary, in a file nobody wrote.
+
+		This is `kui`'s problem and not the author's: `kui` chose `linux` as a
+		platform id, and the convention `p.platform.<id>.Name` follows from that.
+		So `kui` undefines them, for the whole program rather than for one file —
+		the collision is in the *generated* sources, which name the namespace from
+		every file that reaches the capability.
+
+		Undefining is what strict ISO mode does anyway. Code that tests for Linux
+		portably uses `__linux__`, which is untouched.
+	**/
+	static final RESERVED = ["linux", "unix", "i386"];
+
+	static function reservedIn(type:haxe.macro.Type.ClassType):Array<String> {
+		var found = [];
+		for (part in type.pack)
+			if (RESERVED.indexOf(part) >= 0 && found.indexOf(part) < 0) found.push(part);
+		return found;
+	}
+
+	/** Tell `Emit` too, so the qmake fragment carries the same flags. **/
+	static function guardReservedNames(type:haxe.macro.Type.ClassType):Void {
+		var found = reservedIn(type);
+		if (found.length > 0) Emit.undefine(found);
+	}
+
 	static function requireConstructor(fields:Array<Field>, type:haxe.macro.Type.ClassType):Void {
 		for (field in fields) {
 			if (field.name != "new") continue;
@@ -82,8 +118,23 @@ class CapabilityMacro {
 		from ever coming out of a haxelib, and it is not repeated here.
 	**/
 	static function attachPayload(type:haxe.macro.Type.ClassType):Void {
+		// Emitted whether or not there is a payload: an implementation for a
+		// reserved package name breaks the build on its own, with nothing native
+		// in it at all.
+		var undefs = new StringBuf();
+		var reserved = reservedIn(type);
+		if (reserved.length > 0) {
+			undefs.add('<files id="haxe">');
+			for (name in reserved) undefs.add('<compilerflag value="-U' + name + '" />');
+			undefs.add("</files>");
+		}
+
 		var declared = type.meta.extract(":kuiNative");
-		if (declared.length == 0) return;
+		if (declared.length == 0) {
+			if (reserved.length > 0)
+				type.meta.add(":buildXml", [macro $v{undefs.toString()}], type.pos);
+			return;
+		}
 		if (declared[0].params.length != 1) {
 			Context.error("@:kuiNative takes one object, as in "
 				+ "@:kuiNative({hxcpp: {files: [\"native/x.cpp\"]}})", declared[0].pos);
@@ -140,7 +191,7 @@ class CapabilityMacro {
 			xml.add("</target>");
 		}
 
-		var fragment = xml.toString();
+		var fragment = undefs.toString() + xml.toString();
 		if (fragment != "") type.meta.add(":buildXml", [macro $v{fragment}], type.pos);
 	}
 

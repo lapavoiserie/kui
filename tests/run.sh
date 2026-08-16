@@ -33,9 +33,14 @@ fi
 echo
 echo "a platform with no implementation"
 message="$(build browser)"
+# Not the whole list: what a capability implements is read off the filesystem,
+# so pinning the exact set here would make adding a platform look like a
+# regression. What matters is that the message names one, so a reader learns
+# where to look.
 for expected in \
 	'has no implementation for "browser"' \
-	"It implements: macos" \
+	"It implements:" \
+	"macos" \
 	"kui looked for battery.platform.browser.Battery"
 do
 	if grep -qF "$expected" <<<"$message"; then
@@ -96,6 +101,24 @@ if grep -q '\$\$PWD/kui-native/' "$out/kui-native.pri" 2>/dev/null; then
 	pass "and named with \$\$PWD, which survives the build container"
 else
 	fail "the .pri must not name an absolute host path: qmake runs elsewhere"
+fi
+
+echo
+echo "a package name the C preprocessor has taken"
+# `linux` is defined as 1 by gcc outside strict ISO mode, and Haxe writes a
+# package into a C++ namespace verbatim -- so battery.platform.linux generates
+# `namespace 1{`. Found the hard way, on a Qt build, as "expected identifier
+# before numeric constant" in a file nobody wrote.
+haxe -cp . -cp ../src -D kui_platform=linux --main Check -cpp "$out/linux" -D no-compilation > /dev/null 2>&1
+if grep -q -- "-Ulinux" "$out/linux/kui-native.pri" 2>/dev/null; then
+	pass "the qmake fragment undefines it, for the whole program"
+else
+	fail "the qmake fragment must undefine a reserved package name"
+fi
+if grep -q -- '<compilerflag value="-Ulinux"' "$out/linux/Build.xml" 2>/dev/null; then
+	pass "and so does the hxcpp build, which reads different metadata"
+else
+	fail "hxcpp must be told too: it never reads the .pri"
 fi
 
 echo
