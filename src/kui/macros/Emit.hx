@@ -87,6 +87,11 @@ class Emit {
 			if (!sys.FileSystem.exists(directory)) sys.FileSystem.createDirectory(directory);
 			sys.io.File.saveContent(directory + "/kui-payload.json",
 				haxe.Json.stringify(document, null, "  "));
+
+			// qmake gets a rendering of its own — and a copy of the sources,
+			// because it runs inside a container where the host's paths do not
+			// exist. See `kui.build.Qmake`.
+			kui.build.Qmake.write(current(), directory);
 		} catch (e:Dynamic) {
 			// A build that cannot write its sidecar must say so rather than link
 			// half a capability: the native code would be missing and the Haxe

@@ -1,0 +1,20 @@
+{
+  "backend": "pui",
+  "platform": "sailfish",
+  "toolchains": [
+    "qmake"
+  ],
+  "capabilities": [
+    {
+      "payload": {
+        "qmake": {
+          "files": [
+            "/Users/benjamindasnois/new-projects/kui/examples/battery/native/battery_sysfs.cpp"
+          ]
+        }
+      },
+      "platform": "sailfish",
+      "type": "battery.platform.sailfish.Battery"
+    }
+  ]
+}

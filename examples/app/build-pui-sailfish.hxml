@@ -1,0 +1,22 @@
+# The same source again, on SailfishOS — where hxcpp only generates C++ and
+# qmake compiles and links all of it.
+#
+# `-D kui_platform=sailfish` is not optional here: this file and the Linux one
+# are identical in Haxe terms, because only `DEFINES += PUI_SAILFISH` in the
+# `.pro` separates the two, and that is the C++ preprocessor. A guess would be
+# a guess that compiles.
+-cp src
+-lib mui
+-lib pui
+-lib kui
+-lib rui
+-lib nui
+-cp ../battery/src
+-D mui_backend=pui
+-D pui_surface=qt
+-D kui_platform=sailfish
+-D no-compilation
+--macro mui.macros.Bind.all()
+--macro pui.kui.Platform.registerWithKui()
+--main BatteryApp
+-cpp build/pui-sailfish

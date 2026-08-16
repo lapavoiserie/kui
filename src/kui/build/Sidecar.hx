@@ -92,6 +92,25 @@ class Sidecar {
 		return out;
 	}
 
+	/**
+		One toolchain's section per capability, with the name of who declared it.
+
+		`strings` deliberately loses that name — a link line does not care which
+		capability asked for `IOKit`. A consumer that has to keep two capabilities'
+		contributions apart does care: `kui.build.Qmake` copies each declarer's
+		sources into a directory of its own, so two capabilities may both ship a
+		`native/util.cpp` without one overwriting the other.
+	**/
+	public function sections(toolchain:String):Array<{type:String, section:Dynamic}> {
+		var out = [];
+		for (capability in capabilities()) {
+			var section = Reflect.field(Reflect.field(capability, "payload"), toolchain);
+			if (section == null) continue;
+			out.push({type: Reflect.field(capability, "type"), section: section});
+		}
+		return out;
+	}
+
 	/** Who declared what, for a message that names the capability. **/
 	public function names():Array<String>
 		return [for (capability in capabilities()) Reflect.field(capability, "type")];
