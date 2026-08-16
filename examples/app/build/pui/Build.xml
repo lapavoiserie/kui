@@ -1,0 +1,849 @@
+<xml>
+<set name="HXCPP_API_LEVEL" value="430" />
+<files id="haxe">
+<compilerflag value="-Iinclude"/>
+  <file name="src/sys/io/FileOutput.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/FileOutput.h"/>
+  </file>
+  <file name="src/rui/Signal.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Observable.h"/>
+   <depend name="include/rui/Signal.h"/>
+  </file>
+  <file name="src/rui/Effect.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Scheduler.h"/>
+   <depend name="include/rui/Signal.h"/>
+  </file>
+  <file name="src/rui/Scheduler.cpp" >
+   <depend name="include/rui/Scheduler.h"/>
+  </file>
+  <file name="src/rui/Observable.cpp" >
+   <depend name="include/rui/Observable.h"/>
+  </file>
+  <file name="src/pui/ui/_ToggleBinding/ToggleBinding_Impl_.cpp" >
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/ui/_ToggleBinding/ToggleBinding_Impl_.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/ui/_TextInputBinding/TextInputBinding_Impl_.cpp" >
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/ui/_TextInputBinding/TextInputBinding_Impl_.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/ui/Editing.cpp" >
+   <depend name="include/pui/ui/Editing.h"/>
+  </file>
+  <file name="src/pui/ui/TextScale.cpp" >
+   <depend name="include/pui/ui/TextScale.h"/>
+  </file>
+  <file name="src/pui/ui/Spacer.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/ui/Spacer.h"/>
+  </file>
+  <file name="src/pui/ui/_SliderBinding/SliderBinding_Impl_.cpp" >
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/ui/_SliderBinding/SliderBinding_Impl_.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/ui/ListView.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/focus/FocusManager.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/ListView.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/ui/Image.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/ImageSource.h"/>
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/pui/Platform.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/Image.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/Image.h"/>
+  </file>
+  <file name="src/pui/theme/Theme.cpp" >
+   <depend name="include/pui/Display.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+  </file>
+  <file name="src/pui/text/Chars.cpp" >
+   <depend name="include/pui/text/Chars.h"/>
+  </file>
+  <file name="src/pui/state/FloatState.cpp" >
+   <depend name="include/pui/state/FloatState.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/state/BoolState.cpp" >
+   <depend name="include/pui/state/BoolState.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/state/IntState.cpp" >
+   <depend name="include/pui/state/IntState.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/state/State.cpp" >
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/rui/state/State.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/rui/Signal.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/render/TextMetrics.cpp" >
+   <depend name="include/pui/render/TextMetrics.h"/>
+  </file>
+  <file name="src/pui/render/TextLayout.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/render/TextLine.h"/>
+  </file>
+  <file name="src/pui/render/TextLine.cpp" >
+   <depend name="include/pui/render/TextLine.h"/>
+  </file>
+  <file name="src/pui/render/TextAlign.cpp" >
+   <depend name="include/pui/render/TextAlign.h"/>
+  </file>
+  <file name="src/pui/render/LineBreak.cpp" >
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/LineBreak.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/render/TextLine.h"/>
+   <depend name="include/pui/text/Chars.h"/>
+  </file>
+  <file name="src/pui/render/Font.cpp" >
+   <depend name="include/pui/render/Font.h"/>
+  </file>
+  <file name="src/pui/render/CursorShape.cpp" >
+   <depend name="include/pui/render/CursorShape.h"/>
+  </file>
+  <file name="src/pui/render/_Color/Color_Impl_.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/pui/render/_Color/Color_Impl_.h"/>
+  </file>
+  <file name="src/pui/mui/ZStack.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/ZStack.h"/>
+   <depend name="include/pui/ui/ZStack.h"/>
+  </file>
+  <file name="src/pui/ui/ZStack.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/ui/ZStack.h"/>
+  </file>
+  <file name="src/pui/mui/VStack.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/VStack.h"/>
+   <depend name="include/pui/ui/Stack.h"/>
+   <depend name="include/pui/ui/VStack.h"/>
+  </file>
+  <file name="src/pui/ui/VStack.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/ui/Stack.h"/>
+   <depend name="include/pui/ui/VStack.h"/>
+  </file>
+  <file name="src/pui/mui/Toggle.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/Toggle.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/ui/Toggle.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/ui/Toggle.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/anim/Animator.h"/>
+   <depend name="include/pui/anim/Curve.h"/>
+   <depend name="include/pui/anim/Ticker.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/focus/FocusManager.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/Toggle.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/mui/TextInput.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/TextInput.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/ui/TextInput.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/ui/TextInput.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/pui/Platform.h"/>
+   <depend name="include/pui/TextInputState.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/anim/Ticker.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/Modifiers.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/focus/FocusManager.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/text/Chars.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/Editing.h"/>
+   <depend name="include/pui/ui/TextInput.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/mui/Text.cpp" >
+   <depend name="include/mui/ui/TextScale.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/Text.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/ui/Text.h"/>
+   <depend name="include/pui/ui/TextScale.h"/>
+  </file>
+  <file name="src/pui/ui/Text.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/Text.h"/>
+   <depend name="include/pui/ui/TextScale.h"/>
+  </file>
+  <file name="src/pui/mui/TabView.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/TabView.h"/>
+   <depend name="include/pui/ui/TabView.h"/>
+  </file>
+  <file name="src/pui/ui/TabView.cpp" >
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/TabView.h"/>
+  </file>
+  <file name="src/pui/mui/Slider.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/Slider.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/ui/Slider.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/ui/Slider.cpp" >
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/focus/FocusManager.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/Slider.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/mui/ScrollView.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/ScrollView.h"/>
+   <depend name="include/pui/ui/ScrollView.h"/>
+  </file>
+  <file name="src/pui/ui/ScrollView.cpp" >
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/focus/FocusManager.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/ScrollView.h"/>
+   <depend name="include/pui/ui/Stack.h"/>
+   <depend name="include/pui/ui/VStack.h"/>
+  </file>
+  <file name="src/pui/mui/SafeArea.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/SafeArea.h"/>
+   <depend name="include/pui/ui/SafeArea.h"/>
+  </file>
+  <file name="src/pui/ui/SafeArea.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/SafeArea.h"/>
+   <depend name="include/pui/ui/Stack.h"/>
+   <depend name="include/pui/ui/VStack.h"/>
+  </file>
+  <file name="src/pui/mui/ProgressView.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/ProgressView.h"/>
+   <depend name="include/pui/ui/ProgressView.h"/>
+  </file>
+  <file name="src/pui/ui/ProgressView.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/anim/Ticker.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/ProgressView.h"/>
+  </file>
+  <file name="src/pui/mui/HStack.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/HStack.h"/>
+   <depend name="include/pui/ui/HStack.h"/>
+   <depend name="include/pui/ui/Stack.h"/>
+  </file>
+  <file name="src/pui/ui/HStack.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/ui/HStack.h"/>
+   <depend name="include/pui/ui/Stack.h"/>
+  </file>
+  <file name="src/pui/ui/Stack.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/ui/Stack.h"/>
+  </file>
+  <file name="src/pui/mui/ForEach.cpp" >
+   <depend name="include/pui/mui/ForEach.h"/>
+  </file>
+  <file name="src/pui/mui/Divider.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/Divider.h"/>
+   <depend name="include/pui/ui/Divider.h"/>
+  </file>
+  <file name="src/pui/ui/Divider.cpp" >
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/Platform.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/Divider.h"/>
+  </file>
+  <file name="src/pui/mui/ConditionalView.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/ConditionalView.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/ui/ConditionalView.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/ui/ConditionalView.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/state/State.h"/>
+   <depend name="include/pui/ui/ConditionalView.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/pui/mui/Button.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/Button.h"/>
+   <depend name="include/pui/ui/Button.h"/>
+  </file>
+  <file name="src/pui/ui/Button.cpp" >
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/focus/FocusManager.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/ui/Button.h"/>
+  </file>
+  <file name="src/pui/layout/Size.cpp" >
+   <depend name="include/pui/layout/Size.h"/>
+  </file>
+  <file name="src/pui/layout/Rect.cpp" >
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+  </file>
+  <file name="src/pui/layout/Edge.cpp" >
+   <depend name="include/pui/layout/Edge.h"/>
+  </file>
+  <file name="src/pui/layout/Constraint.cpp" >
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+  </file>
+  <file name="src/pui/interaction/Store.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/pui/interaction/Store.h"/>
+  </file>
+  <file name="src/pui/focus/FocusManager.cpp" >
+   <depend name="include/StringTools.h"/>
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/focus/FocusManager.h"/>
+  </file>
+  <file name="src/pui/event/PointerEvent.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/pui/event/Modifiers.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerKind.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+  </file>
+  <file name="src/pui/event/PointerKind.cpp" >
+   <depend name="include/pui/event/PointerKind.h"/>
+  </file>
+  <file name="src/pui/event/PointerPhase.cpp" >
+   <depend name="include/pui/event/PointerPhase.h"/>
+  </file>
+  <file name="src/pui/event/Modifiers.cpp" >
+   <depend name="include/pui/event/Modifiers.h"/>
+  </file>
+  <file name="src/pui/event/KeyEvent.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/Modifiers.h"/>
+  </file>
+  <file name="src/pui/event/KeyCode.cpp" >
+   <depend name="include/pui/event/KeyCode.h"/>
+  </file>
+  <file name="src/pui/event/Event.cpp" >
+   <depend name="include/pui/Display.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+  </file>
+  <file name="src/pui/backend/mac/MacSurface.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/pui/backend/mac/MacImage.h"/>
+   <depend name="include/pui/backend/mac/MacSurface.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Image.h"/>
+   <depend name="include/pui/render/LineBreak.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/render/TextLine.h"/>
+   <depend name="include/pui/render/TextMetrics.h"/>
+  </file>
+  <file name="src/pui/render/Surface.cpp" >
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/render/Font.h"/>
+   <depend name="include/pui/render/Image.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/TextLayout.h"/>
+   <depend name="include/pui/render/TextMetrics.h"/>
+  </file>
+  <file name="src/pui/backend/mac/MacPlatform.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/Sys.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/pui/Display.h"/>
+   <depend name="include/pui/FontSource.h"/>
+   <depend name="include/pui/ImageSource.h"/>
+   <depend name="include/pui/Platform.h"/>
+   <depend name="include/pui/TextInputState.h"/>
+   <depend name="include/pui/backend/mac/MacImage.h"/>
+   <depend name="include/pui/backend/mac/MacPlatform.h"/>
+   <depend name="include/pui/backend/mac/MacSurface.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/Modifiers.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerKind.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Image.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+  </file>
+  <file name="src/pui/backend/mac/MacImage.cpp" >
+   <depend name="include/pui/backend/mac/MacImage.h"/>
+   <depend name="include/pui/render/Image.h"/>
+  </file>
+  <file name="src/pui/render/Image.cpp" >
+   <depend name="include/pui/render/Image.h"/>
+  </file>
+  <file name="src/pui/anim/Ticker.cpp" >
+   <depend name="include/pui/anim/Ticker.h"/>
+  </file>
+  <file name="src/pui/anim/Curves.cpp" >
+   <depend name="include/pui/anim/Curve.h"/>
+   <depend name="include/pui/anim/Curves.h"/>
+  </file>
+  <file name="src/pui/anim/Curve.cpp" >
+   <depend name="include/pui/anim/Curve.h"/>
+  </file>
+  <file name="src/pui/anim/Animator.cpp" >
+   <depend name="include/pui/anim/Animator.h"/>
+   <depend name="include/pui/anim/Curve.h"/>
+   <depend name="include/pui/anim/Curves.h"/>
+   <depend name="include/pui/anim/Ticker.h"/>
+  </file>
+  <file name="src/pui/ViewComponent.cpp" >
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/ViewComponent.h"/>
+  </file>
+  <file name="src/pui/View.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/Platform.h"/>
+   <depend name="include/pui/TextInputState.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/interaction/Store.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+  </file>
+  <file name="src/pui/TextInputState.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/pui/TextInputState.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+  </file>
+  <file name="src/pui/Platform.cpp" >
+   <depend name="include/pui/Display.h"/>
+   <depend name="include/pui/FontSource.h"/>
+   <depend name="include/pui/ImageSource.h"/>
+   <depend name="include/pui/Platform.h"/>
+   <depend name="include/pui/TextInputState.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Image.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+  </file>
+  <file name="src/pui/ImageSource.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/pui/ImageSource.h"/>
+  </file>
+  <file name="src/pui/FontSource.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/pui/FontSource.h"/>
+  </file>
+  <file name="src/pui/Invalidation.cpp" >
+   <depend name="include/pui/Invalidation.h"/>
+  </file>
+  <file name="src/pui/Host.cpp" >
+   <depend name="include/pui/Display.h"/>
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/pui/Platform.h"/>
+   <depend name="include/pui/TextInputState.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/anim/Ticker.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/KeyEvent.h"/>
+   <depend name="include/pui/event/Modifiers.h"/>
+   <depend name="include/pui/event/PointerEvent.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/focus/FocusManager.h"/>
+   <depend name="include/pui/interaction/Store.h"/>
+   <depend name="include/pui/layout/Constraint.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+   <depend name="include/pui/layout/Rect.h"/>
+   <depend name="include/pui/layout/Size.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/render/Surface.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+  </file>
+  <file name="src/pui/Display.cpp" >
+   <depend name="include/pui/Display.h"/>
+   <depend name="include/pui/layout/Edge.h"/>
+  </file>
+  <file name="src/mui/ui/TextScale.cpp" >
+   <depend name="include/mui/ui/TextScale.h"/>
+  </file>
+  <file name="src/kui/Kui.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/kui/Kui.h"/>
+  </file>
+  <file name="src/haxe/iterators/ArrayIterator.cpp" >
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+  </file>
+  <file name="src/haxe/io/Output.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+  </file>
+  <file name="src/haxe/io/Error.cpp" >
+   <depend name="include/haxe/io/Error.h"/>
+  </file>
+  <file name="src/haxe/io/Encoding.cpp" >
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/io/Bytes.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/exceptions/NotImplementedException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/exceptions/PosException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/ds/StringMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+  </file>
+  <file name="src/haxe/NativeStackTrace.cpp" >
+   <depend name="include/haxe/NativeStackTrace.h"/>
+  </file>
+  <file name="src/haxe/Log.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/haxe/Exception.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/NativeStackTrace.h"/>
+  </file>
+  <file name="src/haxe/IMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+  </file>
+  <file name="src/battery/platform/macos/Battery.cpp" >
+   <depend name="include/battery/Battery.h"/>
+   <depend name="include/battery/platform/macos/Battery.h"/>
+   <depend name="include/kui/Capability.h"/>
+  </file>
+  <file name="src/battery/Battery.cpp" >
+   <depend name="include/battery/Battery.h"/>
+   <depend name="include/kui/Capability.h"/>
+  </file>
+  <file name="src/kui/Capability.cpp" >
+   <depend name="include/kui/Capability.h"/>
+  </file>
+  <file name="src/Type.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/Type.h"/>
+  </file>
+  <file name="src/Sys.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/FileOutput.h"/>
+  </file>
+  <file name="src/StringTools.cpp" >
+   <depend name="include/StringTools.h"/>
+  </file>
+  <file name="src/Std.cpp" >
+   <depend name="include/Std.h"/>
+  </file>
+  <file name="src/Reflect.cpp" >
+   <depend name="include/Reflect.h"/>
+  </file>
+  <file name="src/BatteryApp.cpp" >
+   <depend name="include/BatteryApp.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Sys.h"/>
+   <depend name="include/battery/Battery.h"/>
+   <depend name="include/battery/platform/macos/Battery.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/kui/Kui.h"/>
+   <depend name="include/mui/ui/TextScale.h"/>
+   <depend name="include/pui/App.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/mui/App.h"/>
+   <depend name="include/pui/mui/Text.h"/>
+   <depend name="include/pui/mui/VStack.h"/>
+   <depend name="include/pui/ui/Stack.h"/>
+   <depend name="include/pui/ui/Text.h"/>
+   <depend name="include/pui/ui/VStack.h"/>
+  </file>
+  <file name="src/pui/mui/App.cpp" >
+   <depend name="include/pui/App.h"/>
+   <depend name="include/pui/mui/App.h"/>
+  </file>
+  <file name="src/pui/App.cpp" >
+   <depend name="include/pui/App.h"/>
+   <depend name="include/pui/Host.h"/>
+   <depend name="include/pui/Platform.h"/>
+   <depend name="include/pui/View.h"/>
+   <depend name="include/pui/backend/mac/MacPlatform.h"/>
+  </file>
+  <file name="src/__boot__.cpp" >
+   <depend name="include/pui/ui/TextScale.h"/>
+   <depend name="include/pui/render/TextAlign.h"/>
+   <depend name="include/pui/render/CursorShape.h"/>
+   <depend name="include/pui/event/PointerKind.h"/>
+   <depend name="include/pui/event/PointerPhase.h"/>
+   <depend name="include/pui/event/KeyCode.h"/>
+   <depend name="include/pui/event/Event.h"/>
+   <depend name="include/pui/anim/Curve.h"/>
+   <depend name="include/pui/ImageSource.h"/>
+   <depend name="include/pui/FontSource.h"/>
+   <depend name="include/mui/ui/TextScale.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Scheduler.h"/>
+   <depend name="include/pui/ui/Image.h"/>
+   <depend name="include/pui/theme/Theme.h"/>
+   <depend name="include/pui/text/Chars.h"/>
+   <depend name="include/pui/ui/TextInput.h"/>
+   <depend name="include/pui/backend/mac/MacSurface.h"/>
+   <depend name="include/pui/anim/Ticker.h"/>
+   <depend name="include/pui/Invalidation.h"/>
+   <depend name="include/kui/Kui.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/__files__.cpp" if='HXCPP_DEBUGGER'>
+  </file>
+   <file name="${HXCPP}/src/hx/NoFiles.cpp" unless="HXCPP_DEBUGGER" />
+  <file name="src/__resources__.cpp" >
+  </file>
+</files>
+<files id="__lib__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__lib__.cpp" >
+   <depend name="include/BatteryApp.h"/>
+   <depend name="include/pui/App.h"/>
+   <depend name="include/pui/mui/App.h"/>
+  </file>
+</files>
+<files id="__main__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__main__.cpp" >
+   <depend name="include/BatteryApp.h"/>
+   <depend name="include/pui/App.h"/>
+   <depend name="include/pui/mui/App.h"/>
+  </file>
+</files>
+<files id="__resources__">
+</files>
+<files id="__externs__">
+</files>
+<set name="HAXE_OUTPUT" value="BatteryApp" />
+<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+<files id="haxe"><file name="/Users/benjamindasnois/new-projects/kui/examples/battery/native/battery_mac.mm" /></files><target id="haxe"><lib name="-framework" /><lib name="IOKit" /><lib name="-framework" /><lib name="CoreFoundation" /></target>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<files id="haxe">
+	<compilerflag value="-I${haxelib:pui}/src/pui/backend/mac/native" />
+	<file name="${haxelib:pui}/src/pui/backend/mac/native/pui_mac.mm" />
+</files>
+<target id="haxe"><lib name="-framework" /><lib name="Cocoa" /><lib name="-framework" /><lib name="CoreText" /></target>
+<error value="Hxcpp is out of date - please update" unlessApi="430" />
+</xml>

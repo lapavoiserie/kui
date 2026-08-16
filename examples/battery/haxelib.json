@@ -1,0 +1,8 @@
+{
+    "name": "kui-battery",
+    "license": "MIT",
+    "description": "What the battery is doing — the example capability, and the proof that one implementation serves several backends.",
+    "version": "0.1.0",
+    "classPath": "src",
+    "dependencies": { "kui": "" }
+}

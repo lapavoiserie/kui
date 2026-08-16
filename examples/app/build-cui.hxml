@@ -1,0 +1,15 @@
+# The same source, in a terminal — and the same battery.platform.macos.Battery,
+# unchanged, because a capability is keyed by the operating system and not by
+# whoever is drawing.
+-cp src
+-lib mui
+-lib cui
+-lib kui
+-lib rui
+-lib nui
+-cp ../battery/src
+-D mui_backend=cui
+--macro mui.macros.Bind.all()
+--macro cui.kui.Platform.registerWithKui()
+--main BatteryApp
+-cpp build/cui

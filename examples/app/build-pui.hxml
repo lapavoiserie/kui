@@ -1,0 +1,14 @@
+# The same source, on pui's macOS surface.
+-cp src
+-lib mui
+-lib pui
+-lib kui
+-lib rui
+-lib nui
+-cp ../battery/src
+-D mui_backend=pui
+--macro rui.macros.ViewRule.register("mui.App", "body")
+--macro mui.macros.Bind.all()
+--macro pui.kui.Platform.registerWithKui()
+--main BatteryApp
+-cpp build/pui
