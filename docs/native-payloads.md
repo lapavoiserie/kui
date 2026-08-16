@@ -62,6 +62,11 @@ capability's file while explaining nothing. And a `compilerflag` in that group
 applies to *every* generated Haxe source, so one capability's `-I` would reach
 all of them.
 
+The **one** thing deliberately written to that shared group is the `-U` for a
+reserved package name, below — it has to be global, because the namespace it
+repairs is named by every generated source and not by the capability's own file.
+That is the exception the rule is stated precisely enough to allow.
+
 ### The resolved sidecar, where it does not
 
 The other four link steps never open `Build.xml`, and could not use it if they
