@@ -68,6 +68,7 @@ been run:
 | hxcpp | macOS | `pui`, `cui` — `level 100, plugged in, not charging` |
 | hxcpp | Windows | `cui` in a console — `level -1, on mains power` |
 | qmake | Linux | `pui`'s Qt surface, headless — `level -1, on mains power` |
+| hxcpp | Linux | `cui` in a pty — the same, through the other toolchain |
 | Xcode | macOS | `sui` — the same, through IOKit |
 | Xcode | iOS | `sui` on a simulator — `level -1, power source unknown` |
 | Gradle | Android | an emulator, denied sysfs — `level -1, power source unknown` |
