@@ -53,7 +53,10 @@ class NetworkApp extends App {
 		online = new Signal(net.online());
 		announce("start", online.peek());
 
-		watcher = new Effect(() -> {
+		// Handed to the application's lifetime rather than remembered by hand:
+		// `mui.App.lifetime` releases it where the application's loop ends, so
+		// starting a watcher no longer means remembering to stop one.
+		lifetime.ownEffect(watcher = new Effect(() -> {
 			var stop = network.Watch.changes(net, 1000, isOnline -> {
 				online.value = isOnline;
 				changes.value = changes.peek() + 1;
@@ -63,12 +66,8 @@ class NetworkApp extends App {
 				stop();
 				announce("stopped", online.peek());
 			});
-		});
+		}));
 	}
-
-	/** Give the watcher back. Idempotent, because `dispose()` is. **/
-	public function stopWatching():Void
-		watcher.dispose();
 
 	override function body():View {
 		return new VStack([
@@ -86,9 +85,7 @@ class NetworkApp extends App {
 
 	static function main() {
 		#if mui_owns_main
-		var app = new NetworkApp();
-		app.run();
-		app.stopWatching();
+		new NetworkApp().run();
 		#end
 	}
 }

@@ -1,2 +1,5 @@
 out/
-examples/app/android/
+build/
+examples/*/build/
+examples/*/android/
+probes/*/build/
