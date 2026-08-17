@@ -1,0 +1,29 @@
+{
+  "backend": "cui",
+  "platform": "macos",
+  "toolchains": [
+    "hxcpp"
+  ],
+  "capabilities": [
+    {
+      "payload": {
+        "hxcpp": {
+          "libs": [
+            "-framework",
+            "SystemConfiguration"
+          ],
+          "files": [
+            "/Users/benjamindasnois/new-projects/kui/examples/network/native/network_mac.mm"
+          ]
+        },
+        "xcode": {
+          "frameworks": [
+            "SystemConfiguration"
+          ]
+        }
+      },
+      "platform": "macos",
+      "type": "network.platform.macos.Network"
+    }
+  ]
+}

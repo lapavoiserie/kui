@@ -1,0 +1,848 @@
+<xml>
+<set name="HXCPP_API_LEVEL" value="430" />
+<files id="haxe">
+<compilerflag value="-Iinclude"/>
+  <file name="src/sys/thread/_Thread/Thread_Impl_.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/NoEventLoopException.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
+  </file>
+  <file name="src/sys/thread/NoEventLoopException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/thread/NoEventLoopException.h"/>
+  </file>
+  <file name="src/sys/thread/Lock.cpp" >
+   <depend name="include/sys/thread/Lock.h"/>
+  </file>
+  <file name="src/sys/thread/_EventLoop/RegularEvent.cpp" >
+   <depend name="include/sys/thread/_EventLoop/RegularEvent.h"/>
+  </file>
+  <file name="src/sys/thread/NextEventTime.cpp" >
+   <depend name="include/sys/thread/NextEventTime.h"/>
+  </file>
+  <file name="src/sys/io/FileOutput.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/FileOutput.h"/>
+  </file>
+  <file name="src/rui/Effect.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Scheduler.h"/>
+   <depend name="include/rui/Signal.h"/>
+  </file>
+  <file name="src/rui/Scheduler.cpp" >
+   <depend name="include/rui/Scheduler.h"/>
+  </file>
+  <file name="src/rui/Observable.cpp" >
+   <depend name="include/rui/Observable.h"/>
+  </file>
+  <file name="src/network/platform/macos/Network.cpp" >
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/network/Network.h"/>
+   <depend name="include/network/platform/macos/Network.h"/>
+  </file>
+  <file name="src/network/Watch.cpp" >
+   <depend name="include/haxe/Timer.h"/>
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/network/Network.h"/>
+   <depend name="include/network/Watch.h"/>
+  </file>
+  <file name="src/network/Network.cpp" >
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/network/Network.h"/>
+  </file>
+  <file name="src/mui/ui/TextScale.cpp" >
+   <depend name="include/mui/ui/TextScale.h"/>
+  </file>
+  <file name="src/kui/Kui.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/kui/Kui.h"/>
+  </file>
+  <file name="src/kui/Capability.cpp" >
+   <depend name="include/kui/Capability.h"/>
+  </file>
+  <file name="src/haxe/iterators/ArrayIterator.cpp" >
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+  </file>
+  <file name="src/haxe/io/Output.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+  </file>
+  <file name="src/haxe/io/Error.cpp" >
+   <depend name="include/haxe/io/Error.h"/>
+  </file>
+  <file name="src/haxe/io/Encoding.cpp" >
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/io/Bytes.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+  </file>
+  <file name="src/haxe/exceptions/NotImplementedException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/exceptions/PosException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/ds/StringMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/haxe/Timer.cpp" >
+   <depend name="include/haxe/Timer.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/_EventLoop/RegularEvent.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
+  </file>
+  <file name="src/haxe/NativeStackTrace.cpp" >
+   <depend name="include/haxe/NativeStackTrace.h"/>
+  </file>
+  <file name="src/haxe/MainLoop.cpp" >
+   <depend name="include/haxe/MainEvent.h"/>
+   <depend name="include/haxe/MainLoop.h"/>
+  </file>
+  <file name="src/haxe/MainEvent.cpp" >
+   <depend name="include/haxe/MainEvent.h"/>
+  </file>
+  <file name="src/haxe/Log.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/haxe/Exception.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/NativeStackTrace.h"/>
+  </file>
+  <file name="src/haxe/EntryPoint.cpp" >
+   <depend name="include/haxe/EntryPoint.h"/>
+  </file>
+  <file name="src/sys/thread/_Thread/HaxeThread.cpp" >
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/Mutex.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+  </file>
+  <file name="src/sys/thread/EventLoop.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/haxe/MainLoop.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/Lock.h"/>
+   <depend name="include/sys/thread/Mutex.h"/>
+   <depend name="include/sys/thread/NextEventTime.h"/>
+   <depend name="include/sys/thread/_EventLoop/RegularEvent.h"/>
+  </file>
+  <file name="src/sys/thread/Mutex.cpp" >
+   <depend name="include/sys/thread/Mutex.h"/>
+  </file>
+  <file name="src/cui/ui/TabSelection.cpp" >
+   <depend name="include/cui/state/IntState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/TabSelection.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/ui/Spacer.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/ui/Spacer.h"/>
+  </file>
+  <file name="src/cui/ui/SliderBinding.cpp" >
+   <depend name="include/cui/state/FloatState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/SliderBinding.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/ui/ScrollOffset.cpp" >
+   <depend name="include/cui/state/IntState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/ScrollOffset.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/ui/ListSelection.cpp" >
+   <depend name="include/cui/state/IntState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/ListSelection.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/ui/ListView.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/ListSelection.h"/>
+   <depend name="include/cui/ui/ListView.h"/>
+  </file>
+  <file name="src/cui/ui/CheckboxBinding.cpp" >
+   <depend name="include/cui/state/BoolState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/CheckboxBinding.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/state/StringState.cpp" >
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/state/StringState.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/state/FloatState.cpp" >
+   <depend name="include/cui/state/FloatState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/state/BoolState.cpp" >
+   <depend name="include/cui/state/BoolState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/state/IntState.cpp" >
+   <depend name="include/cui/state/IntState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/state/Observable.cpp" >
+   <depend name="include/cui/state/Observable.h"/>
+  </file>
+  <file name="src/cui/state/Binding.cpp" >
+   <depend name="include/cui/state/Binding.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/render/Style.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/cui/render/Color.h"/>
+   <depend name="include/cui/render/NamedColor.h"/>
+   <depend name="include/cui/render/Style.h"/>
+  </file>
+  <file name="src/cui/render/Renderer.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/cui/backend/Backend.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Cell.h"/>
+   <depend name="include/cui/render/Renderer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+  </file>
+  <file name="src/cui/render/Color.cpp" >
+   <depend name="include/cui/render/Color.h"/>
+   <depend name="include/cui/render/NamedColor.h"/>
+  </file>
+  <file name="src/cui/render/NamedColor.cpp" >
+   <depend name="include/cui/render/NamedColor.h"/>
+  </file>
+  <file name="src/cui/render/Cell.cpp" >
+   <depend name="include/cui/render/Cell.h"/>
+   <depend name="include/cui/render/Style.h"/>
+  </file>
+  <file name="src/cui/render/Buffer.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Cell.h"/>
+   <depend name="include/cui/render/Style.h"/>
+  </file>
+  <file name="src/cui/render/BorderChars.cpp" >
+   <depend name="include/cui/render/BorderChars.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+  </file>
+  <file name="src/cui/render/BorderStyle.cpp" >
+   <depend name="include/cui/render/BorderStyle.h"/>
+  </file>
+  <file name="src/cui/mui/ZStack.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/ZStack.h"/>
+   <depend name="include/cui/ui/VStack.h"/>
+  </file>
+  <file name="src/cui/mui/VStack.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/VStack.h"/>
+   <depend name="include/cui/ui/VStack.h"/>
+  </file>
+  <file name="src/cui/mui/_ToggleBinding/ToggleBinding_Impl_.cpp" >
+   <depend name="include/cui/mui/_ToggleBinding/ToggleBinding_Impl_.h"/>
+   <depend name="include/cui/state/BoolState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/CheckboxBinding.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/mui/Toggle.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/Toggle.h"/>
+   <depend name="include/cui/ui/Checkbox.h"/>
+   <depend name="include/cui/ui/CheckboxBinding.h"/>
+  </file>
+  <file name="src/cui/ui/Checkbox.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/Checkbox.h"/>
+   <depend name="include/cui/ui/CheckboxBinding.h"/>
+  </file>
+  <file name="src/cui/mui/_TextInputBinding/TextInputBinding_Impl_.cpp" >
+   <depend name="include/cui/mui/_TextInputBinding/TextInputBinding_Impl_.h"/>
+   <depend name="include/cui/state/Binding.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/state/StringState.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/mui/TextInput.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/TextInput.h"/>
+   <depend name="include/cui/state/Binding.h"/>
+   <depend name="include/cui/ui/Input.h"/>
+  </file>
+  <file name="src/cui/ui/Input.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/state/Binding.h"/>
+   <depend name="include/cui/state/StateBase.h"/>
+   <depend name="include/cui/ui/Input.h"/>
+  </file>
+  <file name="src/cui/mui/Text.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/Text.h"/>
+   <depend name="include/cui/ui/Text.h"/>
+   <depend name="include/mui/ui/TextScale.h"/>
+  </file>
+  <file name="src/cui/ui/Text.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/modifiers/Alignment.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/Text.h"/>
+  </file>
+  <file name="src/cui/mui/TabView.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/TabView.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/TabSelection.h"/>
+   <depend name="include/cui/ui/Tabs.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/ui/Tabs.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/TabSelection.h"/>
+   <depend name="include/cui/ui/Tabs.h"/>
+  </file>
+  <file name="src/cui/mui/StateAction.cpp" >
+   <depend name="include/cui/mui/StateAction.h"/>
+  </file>
+  <file name="src/cui/mui/_SliderBinding/SliderBinding_Impl_.cpp" >
+   <depend name="include/cui/mui/_SliderBinding/SliderBinding_Impl_.h"/>
+   <depend name="include/cui/state/FloatState.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/SliderBinding.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/mui/Slider.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/Slider.h"/>
+   <depend name="include/cui/ui/Slider.h"/>
+   <depend name="include/cui/ui/SliderBinding.h"/>
+  </file>
+  <file name="src/cui/ui/Slider.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/Slider.h"/>
+   <depend name="include/cui/ui/SliderBinding.h"/>
+  </file>
+  <file name="src/cui/mui/ScrollView.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/ScrollView.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/ui/ScrollOffset.h"/>
+   <depend name="include/cui/ui/ScrollView.h"/>
+   <depend name="include/cui/ui/VStack.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/rui/Signal.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Observable.h"/>
+   <depend name="include/rui/Signal.h"/>
+  </file>
+  <file name="src/cui/state/StateBase.cpp" >
+   <depend name="include/cui/state/StateBase.h"/>
+  </file>
+  <file name="src/cui/state/State.cpp" >
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/cui/state/StateBase.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/rui/state/State.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/rui/Signal.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/ui/ScrollView.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/event/MouseButton.h"/>
+   <depend name="include/cui/event/MouseEvent.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Cell.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/ScrollOffset.h"/>
+   <depend name="include/cui/ui/ScrollView.h"/>
+  </file>
+  <file name="src/cui/mui/SafeArea.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/SafeArea.h"/>
+   <depend name="include/cui/ui/VStack.h"/>
+  </file>
+  <file name="src/cui/ui/VStack.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/Spacer.h"/>
+   <depend name="include/cui/ui/VStack.h"/>
+  </file>
+  <file name="src/cui/mui/ProgressView.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/ProgressView.h"/>
+   <depend name="include/cui/ui/ProgressBar.h"/>
+  </file>
+  <file name="src/cui/ui/ProgressBar.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/ProgressBar.h"/>
+  </file>
+  <file name="src/cui/mui/HStack.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/HStack.h"/>
+   <depend name="include/cui/ui/HStack.h"/>
+  </file>
+  <file name="src/cui/ui/HStack.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/HStack.h"/>
+   <depend name="include/cui/ui/Spacer.h"/>
+  </file>
+  <file name="src/cui/mui/ForEach.cpp" >
+   <depend name="include/cui/mui/ForEach.h"/>
+  </file>
+  <file name="src/cui/mui/Divider.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/Divider.h"/>
+   <depend name="include/cui/ui/Divider.h"/>
+  </file>
+  <file name="src/cui/ui/Divider.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/Divider.h"/>
+  </file>
+  <file name="src/cui/mui/ConditionalView.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/mui/ConditionalView.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/state/State.h"/>
+   <depend name="include/rui/state/State.h"/>
+  </file>
+  <file name="src/cui/mui/Button.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/Button.h"/>
+   <depend name="include/cui/ui/Button.h"/>
+  </file>
+  <file name="src/cui/ui/Button.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/modifiers/Alignment.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Style.h"/>
+   <depend name="include/cui/ui/Button.h"/>
+  </file>
+  <file name="src/cui/mui/AnimationCurve.cpp" >
+   <depend name="include/cui/mui/AnimationCurve.h"/>
+  </file>
+  <file name="src/cui/modifiers/ViewModifier.cpp" >
+   <depend name="include/cui/modifiers/Alignment.h"/>
+   <depend name="include/cui/modifiers/SizePolicy.h"/>
+   <depend name="include/cui/modifiers/ViewModifier.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Color.h"/>
+  </file>
+  <file name="src/cui/modifiers/SizePolicy.cpp" >
+   <depend name="include/cui/modifiers/SizePolicy.h"/>
+  </file>
+  <file name="src/cui/modifiers/Alignment.cpp" >
+   <depend name="include/cui/modifiers/Alignment.h"/>
+  </file>
+  <file name="src/cui/layout/Size.cpp" >
+   <depend name="include/cui/layout/Size.h"/>
+  </file>
+  <file name="src/cui/layout/Rect.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+  </file>
+  <file name="src/cui/layout/LayoutEngine.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/LayoutEngine.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/render/BorderChars.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Color.h"/>
+   <depend name="include/cui/render/Style.h"/>
+  </file>
+  <file name="src/cui/layout/Edge.cpp" >
+   <depend name="include/cui/layout/Edge.h"/>
+  </file>
+  <file name="src/cui/layout/Constraint.cpp" >
+   <depend name="include/cui/layout/Constraint.h"/>
+  </file>
+  <file name="src/cui/focus/FocusManager.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/focus/FocusManager.h"/>
+  </file>
+  <file name="src/cui/event/MouseEvent.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/event/MouseAction.h"/>
+   <depend name="include/cui/event/MouseButton.h"/>
+   <depend name="include/cui/event/MouseEvent.h"/>
+  </file>
+  <file name="src/cui/event/MouseAction.cpp" >
+   <depend name="include/cui/event/MouseAction.h"/>
+  </file>
+  <file name="src/cui/event/MouseButton.cpp" >
+   <depend name="include/cui/event/MouseButton.h"/>
+  </file>
+  <file name="src/cui/event/KeyEvent.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+  </file>
+  <file name="src/cui/event/KeyCode.cpp" >
+   <depend name="include/cui/event/KeyCode.h"/>
+  </file>
+  <file name="src/cui/event/EventLoop.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/backend/Backend.h"/>
+   <depend name="include/cui/backend/CrossTerminal.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/EventLoop.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/event/MouseAction.h"/>
+   <depend name="include/cui/event/MouseButton.h"/>
+   <depend name="include/cui/event/MouseEvent.h"/>
+   <depend name="include/cui/focus/FocusManager.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Renderer.h"/>
+   <depend name="include/cui/state/StateBase.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/NextEventTime.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
+  </file>
+  <file name="src/cui/event/Event.cpp" >
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/event/MouseEvent.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+  </file>
+  <file name="src/cui/backend/native/WindowsTerminal.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/cui/backend/native/WindowsTerminal.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+  </file>
+  <file name="src/cui/backend/native/Terminal.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/cui/backend/native/PosixTerminal.h"/>
+   <depend name="include/cui/backend/native/Terminal.h"/>
+   <depend name="include/cui/backend/native/WindowsTerminal.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+  </file>
+  <file name="src/cui/backend/native/PosixTerminal.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/cui/backend/native/PosixTerminal.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+  </file>
+  <file name="src/cui/backend/CrossTerminal.cpp" >
+   <depend name="include/cui/backend/AnsiBackend.h"/>
+   <depend name="include/cui/backend/Backend.h"/>
+   <depend name="include/cui/backend/CrossTerminal.h"/>
+  </file>
+  <file name="src/cui/backend/AnsiBackend.cpp" >
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/cui/backend/AnsiBackend.h"/>
+   <depend name="include/cui/backend/Backend.h"/>
+   <depend name="include/cui/backend/native/PosixTerminal.h"/>
+   <depend name="include/cui/backend/native/Terminal.h"/>
+   <depend name="include/cui/backend/native/WindowsTerminal.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/event/MouseAction.h"/>
+   <depend name="include/cui/event/MouseButton.h"/>
+   <depend name="include/cui/event/MouseEvent.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+  </file>
+  <file name="src/cui/backend/Backend.cpp" >
+   <depend name="include/cui/backend/Backend.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+  </file>
+  <file name="src/cui/ViewComponent.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/ViewComponent.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+  </file>
+  <file name="src/cui/View.cpp" >
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/focus/FocusManager.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/layout/Edge.h"/>
+   <depend name="include/cui/layout/Rect.h"/>
+   <depend name="include/cui/layout/Size.h"/>
+   <depend name="include/cui/modifiers/Alignment.h"/>
+   <depend name="include/cui/modifiers/SizePolicy.h"/>
+   <depend name="include/cui/modifiers/ViewModifier.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/render/Buffer.h"/>
+   <depend name="include/cui/render/Color.h"/>
+   <depend name="include/cui/render/Style.h"/>
+  </file>
+  <file name="src/haxe/IMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+  </file>
+  <file name="src/Type.cpp" >
+   <depend name="include/Type.h"/>
+  </file>
+  <file name="src/Sys.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/FileOutput.h"/>
+  </file>
+  <file name="src/StringBuf.cpp" >
+   <depend name="include/StringBuf.h"/>
+  </file>
+  <file name="src/Std.cpp" >
+   <depend name="include/Std.h"/>
+  </file>
+  <file name="src/NetworkApp.cpp" >
+   <depend name="include/NetworkApp.h"/>
+   <depend name="include/Sys.h"/>
+   <depend name="include/cui/App.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/mui/App.h"/>
+   <depend name="include/cui/mui/Text.h"/>
+   <depend name="include/cui/mui/VStack.h"/>
+   <depend name="include/cui/ui/Text.h"/>
+   <depend name="include/cui/ui/VStack.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/kui/Capability.h"/>
+   <depend name="include/kui/Kui.h"/>
+   <depend name="include/mui/ui/TextScale.h"/>
+   <depend name="include/network/Network.h"/>
+   <depend name="include/network/Watch.h"/>
+   <depend name="include/network/platform/macos/Network.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Signal.h"/>
+  </file>
+  <file name="src/cui/mui/App.cpp" >
+   <depend name="include/cui/App.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/KeyEvent.h"/>
+   <depend name="include/cui/mui/App.h"/>
+  </file>
+  <file name="src/cui/App.cpp" >
+   <depend name="include/cui/App.h"/>
+   <depend name="include/cui/View.h"/>
+   <depend name="include/cui/backend/Backend.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/cui/event/EventLoop.h"/>
+  </file>
+  <file name="src/__boot__.cpp" >
+   <depend name="include/sys/thread/NextEventTime.h"/>
+   <depend name="include/mui/ui/TextScale.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/cui/render/Color.h"/>
+   <depend name="include/cui/render/NamedColor.h"/>
+   <depend name="include/cui/render/BorderStyle.h"/>
+   <depend name="include/cui/mui/StateAction.h"/>
+   <depend name="include/cui/mui/AnimationCurve.h"/>
+   <depend name="include/cui/modifiers/ViewModifier.h"/>
+   <depend name="include/cui/modifiers/SizePolicy.h"/>
+   <depend name="include/cui/modifiers/Alignment.h"/>
+   <depend name="include/cui/layout/Constraint.h"/>
+   <depend name="include/cui/event/MouseAction.h"/>
+   <depend name="include/cui/event/MouseButton.h"/>
+   <depend name="include/cui/event/KeyCode.h"/>
+   <depend name="include/cui/event/Event.h"/>
+   <depend name="include/rui/Effect.h"/>
+   <depend name="include/rui/Scheduler.h"/>
+   <depend name="include/kui/Kui.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+   <depend name="include/cui/mui/TabView.h"/>
+   <depend name="include/cui/mui/ScrollView.h"/>
+   <depend name="include/cui/state/StateBase.h"/>
+   <depend name="include/cui/backend/native/Terminal.h"/>
+  </file>
+  <file name="src/__files__.cpp" if='HXCPP_DEBUGGER'>
+  </file>
+   <file name="${HXCPP}/src/hx/NoFiles.cpp" unless="HXCPP_DEBUGGER" />
+  <file name="src/__resources__.cpp" >
+  </file>
+</files>
+<files id="__lib__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__lib__.cpp" >
+   <depend name="include/NetworkApp.h"/>
+   <depend name="include/cui/App.h"/>
+   <depend name="include/cui/mui/App.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
+  </file>
+</files>
+<files id="__main__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__main__.cpp" >
+   <depend name="include/NetworkApp.h"/>
+   <depend name="include/cui/App.h"/>
+   <depend name="include/cui/mui/App.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
+  </file>
+</files>
+<files id="__resources__">
+</files>
+<files id="__externs__">
+</files>
+<set name="HAXE_OUTPUT" value="NetworkApp" />
+<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<files id="kui_network_platform_macos_Network"><file name="/Users/benjamindasnois/new-projects/kui/examples/network/native/network_mac.mm" /></files><target id="haxe"><files id="kui_network_platform_macos_Network" /><lib name="-framework" /><lib name="SystemConfiguration" /></target>
+<error value="Hxcpp is out of date - please update" unlessApi="430" />
+</xml>

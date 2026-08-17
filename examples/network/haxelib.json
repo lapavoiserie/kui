@@ -1,0 +1,8 @@
+{
+    "name": "kui-network",
+    "license": "MIT",
+    "description": "Whether the machine can reach the network — the example capability that changes while an application is running.",
+    "version": "0.1.0",
+    "classPath": "src",
+    "dependencies": { "kui": "" }
+}

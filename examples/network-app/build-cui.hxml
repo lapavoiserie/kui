@@ -1,0 +1,13 @@
+# In a terminal, where the change can be watched happening.
+-cp src
+-lib mui
+-lib cui
+-lib kui
+-lib rui
+-lib nui
+-cp ../network/src
+-D mui_backend=cui
+--macro mui.macros.Bind.all()
+--macro cui.kui.Platform.registerWithKui()
+--main NetworkApp
+-cpp build/cui

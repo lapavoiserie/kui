@@ -85,6 +85,34 @@ Never a runtime `null`, never a marker on screen. Where a feature is genuinely
 optional, `Kui.supports(battery.Battery)` folds to a compile-time `true`/`false`
 and dead-code elimination removes the rest.
 
+## Two example capabilities, and why there are two
+
+`examples/battery` answers a question: `level()`, `charging()`, `powered()`. It
+is implemented on six platforms and it proves the resolution, the typing and all
+five link channels.
+
+`examples/network` answers a question **whose answer changes while the
+application runs** — and that is a different problem. It deliberately has no
+callback: a native notification arrives on a thread the system chose, and
+calling into Haxe from there means calling into hxcpp's GC from a thread it was
+never told about. So the capability stays a synchronous read, and
+`network.Watch` builds the watching part in Haxe, where it is portable and where
+**stopping** it is something an application can do.
+
+That is what `examples/network-app` shows, and it is the case
+`rui.Signal.Effect.onCleanup` exists for:
+
+```haxe
+watcher = new Effect(() -> {
+    var stop = network.Watch.changes(net, 1000, isOnline -> online.value = isOnline);
+    Effect.onCleanup(stop);
+});
+```
+
+Verified on Linux with the link taken down and brought back inside an isolated
+network namespace — `start — online`, `change — offline`, `change — online` —
+and on macOS for the clean-exit path, where the cleanup stops the timer.
+
 ## Where to go next
 
 - [Getting started](getting-started.md) — using a capability in an application
