@@ -2,6 +2,7 @@ import mui.App;
 import mui.View;
 import mui.ui.Text;
 import mui.ui.VStack;
+import mui.ui.Button;
 import rui.Signal;
 
 /**
@@ -56,9 +57,12 @@ class NetworkApp extends App {
 
 		announce("start", net.online());
 
-		// Stop declaring the watcher after a while, so the release can be
-		// watched happening rather than argued about.
-		haxe.Timer.delay(() -> watching.set(false), 6000);
+		// Two ways to stop declaring the watcher, because two kinds of machine
+		// run this. A timer where one can exist, so a scripted run verifies
+		// itself; and a button, for a device where nobody is watching a
+		// terminal — and where, today, a timer cannot be had at all.
+		try haxe.Timer.delay(() -> watching.set(false), 6000)
+		catch (e:Dynamic) announce("no timer here", true);
 	}
 
 	override function body():View {
@@ -67,18 +71,23 @@ class NetworkApp extends App {
 		// and the guard below stops asking — the watcher is undone at the start
 		// of the next pass.
 		if (watching.get()) lifetime.keep("network", function() {
-			var stop = network.Watch.changes(net, 1000, isOnline -> {
+			// Watching needs a timer. Where the host thread has no Haxe event
+			// loop — SailfishOS, whose thread Qt created — there is none to be
+			// had, and saying so beats crashing: the reading is still taken, and
+			// what is being demonstrated here is the lifetime, not the polling.
+			var stop:Null<Void->Void> = null;
+			try stop = network.Watch.changes(net, 1000, isOnline -> {
 				online.set(isOnline);
 				changes.set(changes.get() + 1);
 				announce("change", isOnline);
-			});
+			}) catch (e:Dynamic) announce("kept without a watcher", true);
 			// Read once at the start: `Watch` reports *changes*, so without this
 			// the first display would show the declared default rather than the
 			// machine.
 			online.set(net.online());
 			announce("kept", online.get());
 			return function() {
-				stop();
+				if (stop != null) stop();
 				announce("released", online.get());
 			};
 		});
@@ -88,6 +97,7 @@ class NetworkApp extends App {
 			new Text(online.get() ? "online" : "offline"),
 			new Text('changes seen: ${changes.get()}'),
 			new Text(watching.get() ? "watching" : "stopped watching"),
+			new Button(watching.get() ? "stop watching" : "watch", () -> watching.set(!watching.get())),
 		], 10);
 	}
 
