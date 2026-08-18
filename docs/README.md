@@ -99,19 +99,28 @@ never told about. So the capability stays a synchronous read, and
 `network.Watch` builds the watching part in Haxe, where it is portable and where
 **stopping** it is something an application can do.
 
-That is what `examples/network-app` shows, and it is the case
-`rui.Signal.Effect.onCleanup` exists for:
+That is what `examples/network-app` shows. The watcher is declared from
+`body()` and lives exactly as long as the declaration — `rui`'s keyed lifetime:
 
 ```haxe
-watcher = new Effect(() -> {
-    var stop = network.Watch.changes(net, 1000, isOnline -> online.value = isOnline);
-    Effect.onCleanup(stop);
-});
+override function body():View {
+    if (watching.get()) lifetime.keep("network", () -> {
+        var stop = network.Watch.changes(net, 1000, isOnline -> online.set(isOnline));
+        return stop;                       // undone once body() stops asking
+    });
+    …
+}
 ```
 
-Verified on Linux with the link taken down and brought back inside an isolated
-network namespace — `start — online`, `change — offline`, `change — online` —
-and on macOS for the clean-exit path, where the cleanup stops the timer.
+The example also degrades honestly where a timer cannot exist — it takes the
+reading and says `kept without a watcher` instead of crashing — and offers a
+button as well as a timer to stop declaring, so it can be exercised on a device
+where nobody is watching a terminal.
+
+Verified end to end on `cui`, `pui`/macOS, `pui`/Linux-Qt (link taken down and
+brought back inside an isolated network namespace), and on a real SailfishOS
+phone — `kept`, `released`, and `kept` again on redeclare, the last being a new
+watcher rather than a resurrection.
 
 ## Where to go next
 
