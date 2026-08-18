@@ -1,0 +1,7 @@
+{
+  "appName": "NetworkApp",
+  "packageName": "com.kui.network",
+  "minSdk": 24,
+  "targetSdk": 35,
+  "compileSdk": 35
+}

@@ -1,0 +1,5 @@
+{
+    "appName": "NetworkApp",
+    "bundleIdentifier": "com.lapavoiserie.kui.network",
+    "bundleIdPrefix": "com.lapavoiserie.kui"
+}

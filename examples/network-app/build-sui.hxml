@@ -1,0 +1,15 @@
+# The same source again, through SwiftUI — where the link step is Xcode, not
+# hxcpp, so the capability's payload travels in the resolved sidecar.
+-cp src
+-lib mui
+-lib sui
+-lib kui
+-lib rui
+-lib nui
+-cp ../network/src
+-D mui_backend=sui
+--macro sui.macros.SwiftGenerator.register()
+--macro mui.macros.Bind.all()
+--macro sui.kui.Platform.registerWithKui()
+--main NetworkApp
+-cpp build/cpp
