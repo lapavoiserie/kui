@@ -44,7 +44,7 @@ class NetworkApp extends App {
 
 	var online:Signal<Bool>;
 	var changes = new Signal(0);
-	var watcher:Effect;
+	var watching = new Signal(true);
 
 	public function new() {
 		super();
@@ -53,27 +53,34 @@ class NetworkApp extends App {
 		online = new Signal(net.online());
 		announce("start", online.peek());
 
-		// Handed to the application's lifetime rather than remembered by hand:
-		// `mui.App.lifetime` releases it where the application's loop ends, so
-		// starting a watcher no longer means remembering to stop one.
-		lifetime.ownEffect(watcher = new Effect(() -> {
+		// Stop declaring the watcher after a while, so the release can be
+		// watched happening rather than argued about.
+		haxe.Timer.delay(() -> watching.value = false, 6000);
+	}
+
+	override function body():View {
+		// A view lifetime, and the whole point of the key: this is only kept
+		// alive while `body()` keeps declaring it. Press a key to stop watching
+		// and the guard below stops asking — the watcher is undone at the start
+		// of the next pass.
+		if (watching.value) lifetime.keep("network", function() {
 			var stop = network.Watch.changes(net, 1000, isOnline -> {
 				online.value = isOnline;
 				changes.value = changes.peek() + 1;
 				announce("change", isOnline);
 			});
-			Effect.onCleanup(() -> {
+			announce("kept", online.peek());
+			return function() {
 				stop();
-				announce("stopped", online.peek());
-			});
-		}));
-	}
+				announce("released", online.peek());
+			};
+		});
 
-	override function body():View {
 		return new VStack([
 			new Text("Watching the network", Title),
 			new Text(online.value ? "online" : "offline"),
 			new Text('changes seen: ${changes.value}'),
+			new Text(watching.value ? "watching — press w to stop" : "stopped — press w to watch"),
 		], 10);
 	}
 
