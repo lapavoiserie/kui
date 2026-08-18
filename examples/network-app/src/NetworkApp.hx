@@ -42,20 +42,23 @@ import rui.Signal;
 class NetworkApp extends App {
 	final net = kui.Kui.get(network.Network);
 
-	var online:Signal<Bool>;
-	var changes = new Signal(0);
-	var watching = new Signal(true);
+	// `@:state`, not a raw `rui.Signal`: a write to mui's own state is what
+	// invalidates the tree and gets `body()` re-run on every backend. A bare
+	// signal is read fine but nothing asks for a rebuild, so the declaration
+	// never changes and `keep` never sweeps.
+	@:state var online:Bool = false;
+	@:state var changes:Int = 0;
+	@:state var watching:Bool = true;
 
 	public function new() {
 		super();
 		appTitle = "Network";
 
-		online = new Signal(net.online());
-		announce("start", online.peek());
+		announce("start", net.online());
 
 		// Stop declaring the watcher after a while, so the release can be
 		// watched happening rather than argued about.
-		haxe.Timer.delay(() -> watching.value = false, 6000);
+		haxe.Timer.delay(() -> watching.set(false), 6000);
 	}
 
 	override function body():View {
@@ -63,24 +66,28 @@ class NetworkApp extends App {
 		// alive while `body()` keeps declaring it. Press a key to stop watching
 		// and the guard below stops asking — the watcher is undone at the start
 		// of the next pass.
-		if (watching.value) lifetime.keep("network", function() {
+		if (watching.get()) lifetime.keep("network", function() {
 			var stop = network.Watch.changes(net, 1000, isOnline -> {
-				online.value = isOnline;
-				changes.value = changes.peek() + 1;
+				online.set(isOnline);
+				changes.set(changes.get() + 1);
 				announce("change", isOnline);
 			});
-			announce("kept", online.peek());
+			// Read once at the start: `Watch` reports *changes*, so without this
+			// the first display would show the declared default rather than the
+			// machine.
+			online.set(net.online());
+			announce("kept", online.get());
 			return function() {
 				stop();
-				announce("released", online.peek());
+				announce("released", online.get());
 			};
 		});
 
 		return new VStack([
 			new Text("Watching the network", Title),
-			new Text(online.value ? "online" : "offline"),
-			new Text('changes seen: ${changes.value}'),
-			new Text(watching.value ? "watching — press w to stop" : "stopped — press w to watch"),
+			new Text(online.get() ? "online" : "offline"),
+			new Text('changes seen: ${changes.get()}'),
+			new Text(watching.get() ? "watching" : "stopped watching"),
 		], 10);
 	}
 
