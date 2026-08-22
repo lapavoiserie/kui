@@ -68,8 +68,20 @@ class Host {
 	static var declared:Null<Declaration> = null;
 
 	/** Called by a backend's own init macro. See the class documentation. **/
-	public static function register(declaration:Declaration):Void
+	public static function register(declaration:Declaration):Void {
 		declared = declaration;
+		// Publish it as a define too, so a macro that must not depend on `kui`
+		// can still learn which platform is being built. `rui`'s durable state
+		// is the case: it refuses `@:state(durable)` where no store exists, and
+		// naming `kui` to find that out would put a capability library under the
+		// reactive core. A build's platform is a property of the build; a define
+		// is what that looks like.
+		//
+		// An explicit `-D kui_platform` still wins — it is set before any init
+		// macro runs, so it is already there and this leaves it alone.
+		if (Context.definedValue("kui_platform") == null)
+			haxe.macro.Compiler.define("kui_platform", declaration.platform);
+	}
 
 	/**
 		The platform this build targets, or `null` if nobody said.
