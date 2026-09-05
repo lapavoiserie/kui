@@ -11,7 +11,7 @@ hxcpp.
 	hxcpp:   {files: [...], includes: [...], libs: [...], flags: [...]},
 	qmake:   {files: [...], includes: [...], qt: [...], pkgconfig: [...], config: [...], libs: [...]},
 	xcode:   {sources: [...], frameworks: [...], packages: [...]},
-	gradle:  {sources: [...], dependencies: [...], permissions: [...]},
+	gradle:  {sources: [...], dependencies: [...], permissions: [...], components: [...]},
 	msbuild: {sources: [...], includes: [...], libs: [...], nuget: [...]},
 })
 ```
@@ -26,6 +26,35 @@ example capability does exactly that:
 hxcpp: {files: ["native/battery_mac.mm"], libs: ["-framework", "IOKit"]},
 xcode: {frameworks: ["IOKit"]},
 ```
+
+## `gradle.components`, the one field nobody can check
+
+Some Android abilities are not an API call but a **declaration**. A
+`WearableListenerService` is delivered to whether or not the application is
+running — which is the only way to reach an app whose process Android has
+frozen — and one the manifest never named receives nothing. No amount of
+runtime code substitutes for it.
+
+So a capability may carry manifest components, as XML pasted inside
+`<application>`:
+
+```haxe
+components: ['<service android:name="wear.native.WearListener" ... </service>']
+```
+
+XML rather than a typed structure, deliberately: an intent filter carries
+actions, data schemes and path patterns whose shapes differ per component, and
+a typedef covering them would be a small XML dialect with the same failure
+modes and less documentation.
+
+The bargain is stated rather than hidden. **This is the one payload field a
+backend cannot check**: a malformed fragment fails at manifest merge, naming a
+line in generated XML. Everything else here is typed.
+
+Why it travels with the capability at all: an application that had to remember
+a manifest entry is an application that one day forgets it, and the symptom —
+a service that is simply never called — reads as latency rather than as an
+error.
 
 The literal is **type-checked** against `kui.build.Payload` before it is read, so
 a misspelled field is an error at the metadata's own position rather than a key

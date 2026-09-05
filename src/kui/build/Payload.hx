@@ -82,6 +82,27 @@ typedef GradlePayload = {
 	?sources:Array<String>,
 	?dependencies:Array<String>,
 	?permissions:Array<String>,
+
+	/**
+		Manifest components — a `<service>`, a `<receiver>` — as XML.
+
+		Some Android abilities are not an API call but a **declaration**: a
+		`WearableListenerService` is delivered to by the system whether or not
+		the application is running, and one that the manifest never named is
+		one the system does not know about. Nothing a capability can do at
+		runtime substitutes for it.
+
+		XML rather than a typed structure, and deliberately: an intent filter
+		carries actions, data schemes and path patterns whose shapes differ per
+		component, and a typedef covering them would be a small XML dialect
+		with the same failure modes and less documentation. The fragment is
+		pasted inside `<application>` verbatim.
+
+		The bargain is stated so nobody is surprised: this is the one payload
+		field a backend cannot check. A malformed fragment fails at manifest
+		merge, naming a line in generated XML.
+	**/
+	?components:Array<String>,
 };
 
 /** What MSBuild needs: `wui`. **/
