@@ -61,7 +61,7 @@ class NetworkApp extends App {
 		// run this. A timer where one can exist, so a scripted run verifies
 		// itself; and a button, for a device where nobody is watching a
 		// terminal — and where, today, a timer cannot be had at all.
-		try haxe.Timer.delay(() -> watching.set(false), 6000)
+		try haxe.Timer.delay(() -> watching = false, 6000)
 		catch (e:Dynamic) announce("no timer here", true);
 	}
 
@@ -70,42 +70,42 @@ class NetworkApp extends App {
 		// alive while `body()` keeps declaring it. Press a key to stop watching
 		// and the guard below stops asking — the watcher is undone at the start
 		// of the next pass.
-		if (watching.get()) lifetime.keep("network", function() {
+		if (watching) lifetime.keep("network", function() {
 			// Watching needs a timer. Where the host thread has no Haxe event
 			// loop — SailfishOS, whose thread Qt created — there is none to be
 			// had, and saying so beats crashing: the reading is still taken, and
 			// what is being demonstrated here is the lifetime, not the polling.
 			var stop:Null<Void->Void> = null;
 			try stop = network.Watch.changes(net, 1000, isOnline -> {
-				online.set(isOnline);
-				changes.set(changes.get() + 1);
+				online = isOnline;
+				changes += 1;
 				announce("change", isOnline);
 			}) catch (e:Dynamic) announce("kept without a watcher", true);
 			// Read once at the start: `Watch` reports *changes*, so without this
 			// the first display would show the declared default rather than the
 			// machine.
-			online.set(net.online());
-			announce("kept", online.get());
+			online = net.online();
+			announce("kept", online);
 			return function() {
 				if (stop != null) stop();
-				announce("released", online.get());
+				announce("released", online);
 			};
 		});
 
 		return new VStack([
 			new Text("Watching the network", Title),
-			new Text(online.get() ? "online" : "offline"),
-			new Text('changes seen: ${changes.get()}'),
-			new Text(watching.get() ? "watching" : "stopped watching"),
-			new Button(watching.get() ? "stop watching" : "watch", () -> watching.set(!watching.get())),
+			new Text(online ? "online" : "offline"),
+			new Text('changes seen: $changes'),
+			new Text(watching ? "watching" : "stopped watching"),
+			new Button(watching ? "stop watching" : "watch", () -> watching = !watching),
 		], 10);
 	}
 
 	// On stderr as well as on screen: a terminal backend takes the screen over,
 	// and a change that happens while nobody is looking still has to be
 	// checkable afterwards.
-	static function announce(what:String, online:Bool):Void
-		Sys.stderr().writeString('net: $what — ${online ? "online" : "offline"}\n');
+	static function announce(what:String, online_:Bool):Void
+		Sys.stderr().writeString('net: $what — ${online_ ? "online" : "offline"}\n');
 
 	static function main() {
 		#if mui_owns_main
